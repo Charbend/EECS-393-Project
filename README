@@ -1,3 +1,11 @@
 EECS 393 Project Home Inventory
 Drew Heald, Sharan Mehta, Lennox Wildman, McKenzie Hawkins, Christine Pan, Alexander Mazon
 
+Initial setup:
+git clone <repository link>
+
+When doing any other work:
+Git pull to get up to date
+Fork a new branch so you don't work on the master branch
+When satisfied that your code works, commit it
+We can then merge any code back into the master branch
