@@ -1,0 +1,22 @@
+{
+  "name": "eecs-393-project",
+  "version": "1.0.0",
+  "description": "EECS 393 Project using MongoDB to store data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charbend/EECS-393-Project.git"
+  },
+  "author": "Drew Heald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Charbend/EECS-393-Project/issues"
+  },
+  "homepage": "https://github.com/Charbend/EECS-393-Project#readme",
+  "dependencies": {
+    "mongodb": "^3.5.4"
+  }
+}
