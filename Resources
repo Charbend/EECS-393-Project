@@ -1,11 +1,15 @@
-MongoDB Node.js docs: https://mongodb.github.io/node-mongodb-native/3.5/quick-start/quick-start/
+MongoDB Node.js docs: 
+  https://mongodb.github.io/node-mongodb-native/3.5/quick-start/quick-start/
 
-Angular Tutorials (May not need): https://angular-templates.io/tutorials/about/learn-angular-from-scratch-step-by-step
+Angular Tutorials (May not need): 
+  https://angular-templates.io/tutorials/about/learn-angular-from-scratch-step-by-step
   https://angular-templates.io/tutorials/about/learn-how-to-build-a-mean-stack-application
   
 Express.js: https://expressjs.com/
 
-API: https://loopback.io/getting-started.html (API tool for node.js)
+API: 
+  https://loopback.io/getting-started.html (API tool for node.js)
+  https://www.robinwieruch.de/node-express-server-rest-api
 
 Tools needed:
-Node.js
+  Node.js
