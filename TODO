@@ -1,4 +1,7 @@
 For first demo:
 Code to manage database
+  -Drew: doing stuff with node.js to write CRUD functionality for db
 Some sort of user interface
+  -Used to abstract user interaction with db, so no direct code manipulation is needed
 API?
+  -Used to expose CRUD functions to UI
