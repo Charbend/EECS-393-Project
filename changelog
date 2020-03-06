@@ -1,0 +1,20 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+
+## [Unreleased]
+
+### Changed
+
+### Removed
+
+### Fixed
+
+### Added
+
+[0.0.1] 2020 - 06 - 03
+### Added
+-changelog file to track changes
+-README to serve as introduction to program for external and internal users
+-Initial testing code with Node.js
