@@ -2,8 +2,12 @@ MongoDB Node.js docs: https://mongodb.github.io/node-mongodb-native/3.5/quick-st
 
 Angular Tutorials (May not need): https://angular-templates.io/tutorials/about/learn-angular-from-scratch-step-by-step
   https://angular-templates.io/tutorials/about/learn-how-to-build-a-mean-stack-application
-  
+
 Express.js: https://expressjs.com/
+
+Using API from Android Studio
+https://android.jlelse.eu/rest-api-on-android-made-simple-or-how-i-learned-to-stop-worrying-and-love-the-rxjava-b3c2c949cad4
 
 Tools needed:
 Node.js
+Android Studio (for android dev)

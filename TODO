@@ -1,4 +1,4 @@
 For first demo:
-Code to manage database
+-Flesh out API for easier management of information in database
+-Flesh out API so it isn't connected to one specific collection
 Some sort of user interface
-API?
