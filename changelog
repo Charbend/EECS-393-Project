@@ -13,6 +13,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+[0.0.2] 2020 - 11 - 03
+### Added
+-db.js to connect to database
+
+### Changed
+-server.js to be API
+-Resources, TODO, to reflect new goals and provide sources for future changes
+
 [0.0.1] 2020 - 06 - 03
 ### Added
 -changelog file to track changes
