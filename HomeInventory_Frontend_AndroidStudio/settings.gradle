@@ -1,0 +1,2 @@
+rootProject.name='HomeInventory_Frontend_AndroidStudio'
+include ':app'
