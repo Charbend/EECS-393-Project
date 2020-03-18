@@ -1,7 +1,20 @@
 package classes;
 
 public class User {
+	
+	//instance data
+	private String password;
+	private String username;
+	private Type userType;
+	private String userID;
+	
+	//constructor
+	public User (String name, Type type, String pwd, String id) {
 
+	}
+	
+	
+	//methods
 	public User getUser() {
 
 	}
@@ -34,9 +47,6 @@ public class User {
 
 	}
 
-	public User (String name, Type type, String pwd, String id) {
-
-	}
 
 	public void setUserID(String id) {
 
