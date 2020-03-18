@@ -2,6 +2,17 @@ package classes;
 
 public class Retailer {
 
+	//instance data
+	private String storeName;
+	private String storeURL;
+	
+	//constructor
+	public Retailer(String name, String url) {
+
+	}
+	
+	
+	//methods
 	public String getRetailerName() {
 
 	}
@@ -18,9 +29,6 @@ public class Retailer {
 
 	}
 
-	public Retailer(String name, String url) {
-
-	}
 
 	public String getRetailerURL() {
 
