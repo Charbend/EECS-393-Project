@@ -2,6 +2,17 @@ package classes;
 
 public class List {
 
+	//instance data
+	List<Item> inventory;
+	
+	
+	//constructors
+	public List(String name) {
+
+	}
+	
+	
+	//methods
 	public boolean addItem(Item item) {
 
 	}
@@ -15,10 +26,6 @@ public class List {
 	}
 
 	public boolean removeQuantity(int qty) {
-
-	}
-
-	public List(String name) {
 
 	}
 
