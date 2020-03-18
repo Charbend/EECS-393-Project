@@ -2,6 +2,16 @@ package classes;
 
 public class Item {
 
+	//instance data
+	private String title;
+	private int quantity;
+	private String category;
+	private Retailer store;
+	private String location;
+	private Double price;
+	
+	
+	
 	//constructors
 	public Item (String name, int qty, double price, String category, Retailer retailer) {
 
