@@ -1,12 +1,25 @@
 package classes;
 
 public class Budget {
-
-	public void setAmount(Double amount) {
+	
+	//instance data
+	private String category;
+	private Double amount;
+	private Double spent;
+	
+	
+	//constructor
+	public Budget(String category) {
 
 	}
 
-	public void increaseSpent(Double spent) {
+	
+	//methods
+	public void setAmount(Double value) {
+
+	}
+
+	public void increaseSpent(Double value) {
 
 	}
 
@@ -18,9 +31,7 @@ public class Budget {
 
 	}
 
-	public Budget(String category) {
 
-	}
 
 
 
