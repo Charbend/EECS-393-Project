@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     protected String doInBackground(Void... params) {
                         String nodeResponse="";
                         try {
-                            URL localNodeServer = new URL("http://localhost:3000/");
+                            URL localNodeServer = new URL("localhost:3000/");
                             BufferedReader in = new BufferedReader(
                                     new InputStreamReader(localNodeServer.openStream()));
                             String inputLine;

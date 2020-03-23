@@ -10,31 +10,90 @@
         android:id="@+id/btVersions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Node Versions"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
+        android:text="@string/node_versions"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvVersions"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="411dp"
+        android:layout_height="650dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="42dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text='Press "Node Versions" button to call process.versions'
+        android:layout_marginBottom="40dp"
+        android:background="#93CED6"
+        android:backgroundTint="#93CED6"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btVersions"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="264dp"
+        android:text="@string/log_in"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="526dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="130dp"
+        android:text="@string/sign_up"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="180dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginBottom="539dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="@string/home"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="334dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="191dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="466dp"
+        android:text="@string/inventory"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
