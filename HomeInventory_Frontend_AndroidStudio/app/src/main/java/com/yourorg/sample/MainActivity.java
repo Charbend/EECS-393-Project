@@ -8,6 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import java.net.*;
 import java.io.*;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+import com.yourorg.sample.ui.login.LogInActivity;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,6 +82,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    // https://developer.android.com/training/basics/firstapp/starting-activity#java
+    public static final String EXTRA_MESSAGE = "com.yourorg.sample.MESSAGE";
+
+    /** Called when the user taps the LOG-IN button */
+    public void logIn(View view) {
+        Intent intent = new Intent(this, LogInActivity.class);
+        startActivity(intent);
+    }
+
+    /** Called when the user taps the SIGN UP button */
+    public void signUp(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivity(intent);
+    }
+
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
