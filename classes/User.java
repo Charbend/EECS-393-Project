@@ -5,11 +5,11 @@ public class User {
 	//instance data
 	private String password;
 	private String username;
-	private Type userType;
+	private int userType;
 	private String userID;
 	
 	//constructor
-	public User (String name, Type type, String pwd, String id) {
+	public User (String name, int type, String pwd, String id) {
 		username = name;
 		usertype = type;
 		password = pwd;
@@ -23,7 +23,7 @@ public class User {
 		return password.equals(pwd);
 	}
 
-	public void editUser(User user, String name, Type type) {
+	public void editUser(User user, String name, int type) {
 		user.setUserName(name);
 		user.setUserType(type);
 	}
@@ -36,7 +36,7 @@ public class User {
 		return username;
 	}
 
-	public void setUserType(Type type) {
+	public void setUserType(int type) {
 		userType = type;
 	}
 
@@ -48,7 +48,7 @@ public class User {
 		return pwd;
 	}
 
-	public Type getUserType() {
+	public int getUserType() {
 		return userType;
 	}
 
