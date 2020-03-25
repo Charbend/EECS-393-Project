@@ -82,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    // https://developer.android.com/training/basics/firstapp/starting-activity#java
-    public static final String EXTRA_MESSAGE = "com.yourorg.sample.MESSAGE";
 
     /** Called when the user taps the LOG-IN button */
     public void logIn(View view) {
