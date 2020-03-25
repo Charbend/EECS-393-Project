@@ -3,6 +3,7 @@ package com.yourorg.sample.ui.login;
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -18,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yourorg.sample.HomePageActivity;
 import com.yourorg.sample.R;
 import com.yourorg.sample.ui.login.LoginViewModel;
 import com.yourorg.sample.ui.login.LoginViewModelFactory;
@@ -68,6 +70,10 @@ public class LogInActivity extends AppCompatActivity {
                     updateUiWithUser(loginResult.getSuccess());
                 }
                 setResult(Activity.RESULT_OK);
+
+                // ADDED THIS TO GO TO HOME PAGE AFTER LOGGING IN
+                Intent intent = new Intent(LogInActivity.this, HomePageActivity.class);
+                startActivity(intent);
 
                 //Complete and destroy login activity once successful
                 finish();

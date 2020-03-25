@@ -18,4 +18,18 @@
     <string name="password">PASSWORD</string>
     <string name="confirm_password">CONFIRM PASSWORD</string>
     <string name="name">NAME</string>
+    <string name="nav_header_desc" />
+    <string name="nav_header_title" />
+    <string name="nav_header_subtitle" />
+    <string name="menu_home" />
+    <string name="menu_gallery" />
+    <string name="menu_slideshow" />
+    <string name="action_settings" />
+    <string name="home_second" />
+    <string name="welcome_back">WELCOME BACK</string>
+    <string name="price_10_book">Price\nBook</string>
+    <string name="view_10_rooms">View\nRooms</string>
+    <string name="track_10_purchases">Track\nPurchases</string>
+    <string name="search">Search</string>
+    <string name="your_shortcuts">YOUR SHORTCUTS</string>
 </resources>

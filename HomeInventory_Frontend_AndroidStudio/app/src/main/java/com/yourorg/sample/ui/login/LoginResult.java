@@ -1,6 +1,9 @@
 package com.yourorg.sample.ui.login;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
+
+import com.yourorg.sample.HomePageActivity;
 
 /**
  * Authentication result : success (user details) or error message.
