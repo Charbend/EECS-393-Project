@@ -33,7 +33,10 @@
     <string name="search">Search</string>
     <string name="your_shortcuts">YOUR SHORTCUTS</string>
     <string name="you_don_t_have_any_rooms_right_now">You don\'t have any rooms right now.</string>
-    <string name="add_room">ADD ROOM</string>
     <string name="view_rooms">VIEW ROOMS</string>
     <string name="advertisement">ADVERTISEMENT</string>
+    <string name="done">DONE</string>
+    <string name="enter_room_n_name">ENTER ROOM \n NAME:</string>
+    <string name="add_room">ADD ROOM</string>
+    <string name="ex_kitchen">EX: KITCHEN</string>
 </resources>

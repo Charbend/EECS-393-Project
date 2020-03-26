@@ -96,6 +96,7 @@
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:background="#000000"
+        android:gravity="center"
         android:text="@string/welcome_back"
         android:textAlignment="center"
         android:textColor="#93CED6"
@@ -139,9 +140,10 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="413dp"
-        android:layout_height="82dp"
+        android:layout_width="410dp"
+        android:layout_height="75dp"
         android:background="#93CED6"
+        android:gravity="center"
         android:text="@string/advertisement"
         android:textAlignment="center"
         android:textColor="#000000"

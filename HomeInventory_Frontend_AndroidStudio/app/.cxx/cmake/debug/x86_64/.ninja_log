@@ -8,3 +8,6 @@
 0	15	0	clean	ce25dd021658aa6b
 6	616	606818062	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	4b84021eac8a0326
 616	1007	606818062	../../../../build/intermediates/cmake/debug/obj/x86_64/libnative-lib.so	674e40bb4f62621f
+0	11	0	clean	ce25dd021658aa6b
+6	752	606904571	CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o	4b84021eac8a0326
+752	1449	606904571	../../../../build/intermediates/cmake/debug/obj/x86_64/libnative-lib.so	674e40bb4f62621f
