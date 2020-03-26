@@ -11,27 +11,30 @@ public class Budget {
 	//constructor
 	public Budget(String category) {
 		this.category = category;
+		this.amount = 0.0;
+		this.spent = 0.0;
 	}
 
 	
 	//methods
 	public void setAmount(Double value) {
-		amount = value;
+		this.amount = value;
 	}
 
 	public void increaseSpent(Double value) {
-		spent += value;
+		this.spent += value;
 	}
 
 	public double getSpent() {
-		return spent;
+		return this.spent;
 	}
 
-	public double getAmount(Item item) {
-		return amount;
+	public double getAmount() {
+		return this.amount;
 	}
-
-
-
+	
+	public String getCategory() {
+		return this.category;
+	}
 
 }
