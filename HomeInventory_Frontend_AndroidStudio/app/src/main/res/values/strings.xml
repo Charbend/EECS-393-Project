@@ -39,4 +39,7 @@
     <string name="enter_room_n_name">ENTER ROOM \n NAME:</string>
     <string name="add_room">ADD ROOM</string>
     <string name="ex_kitchen">EX: KITCHEN</string>
+    <string name="add_item">ADD ITEM</string>
+    <string name="view_items">VIEW ITEMS</string>
+    <string name="ex_bread">EX: BREAD</string>
 </resources>
