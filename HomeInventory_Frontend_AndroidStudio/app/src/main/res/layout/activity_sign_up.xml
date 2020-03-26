@@ -152,6 +152,7 @@
         android:layout_width="175dp"
         android:layout_height="50dp"
         android:backgroundTint="#FFFFFF"
+        android:onClick="signUpSuccess"
         android:text="@string/sign_up"
         android:textColor="#000000"
         android:textSize="24sp"
