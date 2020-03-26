@@ -3,8 +3,7 @@ package classes;
 public class Item {
 
 	//instance data
-	private String title;
-	private String ID;
+	private String itemName;
 	private int quantity;
 	private String category;
 	private Retailer store;
@@ -14,84 +13,71 @@ public class Item {
 	
 	
 	//constructors
-	public Item (String name, int qty, double price, String category, Retailer retailer) {
-		title = name;
-		quantity = qty;
-		cost = price;
+	public Item (String itemName, int qty, double price, String category, Retailer retailer) {
+		this.itemName = itemName;
+		this.quantity = qty;
+		this.cost = price;
 		this.category = category;
-		store = retailer;		
+		this.store = retailer;		
 	}
 
-	public Item (String name, int qty, double price, String category, String location, Retailer retailer) {
-		title = name;
-		quantity = qty;
-		cost = price;
+	public Item (String itemName, int qty, double price, String category, String location, Retailer retailer) {
+		this.itemName = itemName;
+		this.quantity = qty;
+		this.cost = price;
 		this.category = category;
 		this.location = location;
-		store = retailer;
+		this.store = retailer;
 	}
 	
-	public Item (String name, int qty, double price, String category, String location) {
-		title = name;
-		quantity = qty;
-		cost = price;
+	public Item (String itemName, int qty, double price, String category, String location) {
+                this.itemName = itemName;
+		this.quantity = qty;
+		this.cost = price;
 		this.category = category;
 		this.location = location;
 	}
 
-	public Item (String name, int qty, double price, String category) {
-		title = name;
-		quantity = qty;
-		cost = price;
+	public Item (String itemName, int qty, double price, String category) {
+		this.itemName = itemName;
+		this.quantity = qty;
+		this.cost = price;
 		this.category = category;
 	}
 
 
 	//methods
 	public String getName() {
-		return title;
+		return this.itemName;
 	}
 
 
 	public double getPrice() {
-		return cost;
+		return this.cost;
 	}
 
 	public String getCategory() {
-		return category;
+		return this.category;
 	}
 
 	public int getQuantity() {
-		return quantity;
+		return this.quantity;
 	}
 
 	public String getLocation() {
-		return location;
+		return this.location;
 	}
 
-	public void addLocation(String itemID, String location) {
-		if (this.location == null) {
-			this.location = location;
-		}
-	}
-
-	public void changeLocation(String itemID, String location) {
-		
-	}
-
-	public void removeLocation(String itemID) {
-		location = null;
-	}
-
-	public Item getItem() {
-
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	public Retailer getRetailer() {
-		return store;
+		return this.store;
 	}
 
-	public void setRetailer(String code) {
+	public void setRetailer(String store) {
+		this.store = store;
 
 	}
 
