@@ -14,7 +14,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
     }
 
-    /** Called when the user taps the LOG-IN button */
+    /** Called when the user taps the SiGN UP button */
     public void signUpSuccess(View view) {
         Intent intent = new Intent(this, HomePageActivity.class);
         startActivity(intent);
