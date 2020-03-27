@@ -26,9 +26,15 @@ public class HomePageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /** Called when the user taps the Track Purchases button */
+    public void TrackPurchases(View view) {
+        Intent intent = new Intent(this, TrackPurchasesActivity.class);
+        startActivity(intent);
+    }
+
     /** Called when the user taps the Price Book button */
-    public void Search(View view) {
-        Intent intent = new Intent(this, SearchActivity.class);
+    public void Shop(View view) {
+        Intent intent = new Intent(this, ShopActivity.class);
         startActivity(intent);
     }
 }

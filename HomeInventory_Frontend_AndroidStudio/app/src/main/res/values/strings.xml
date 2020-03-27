@@ -56,4 +56,10 @@
     <string name="enter_user_s_email">ENTER USER\'S EMAIL</string>
     <string name="email_address">Email Address</string>
     <string name="add_user_to_this_list">ADD USER TO THIS LIST</string>
+    <string name="shop">SHOP</string>
+    <string name="shop_retailers">SHOP RETAILERS</string>
+    <string name="item_npurchased">ITEM\nPURCHASED</string>
+    <string name="location_npurchased">LOCATION\nPURCHASED</string>
+    <string name="category">CATEGORY</string>
+    <string name="track_purchases">TRACK PURCHASES</string>
 </resources>
