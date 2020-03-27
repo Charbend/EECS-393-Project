@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,6 +11,7 @@
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:background="#93CED6"
+        android:onClick="PriceBook"
         android:text="@string/price_10_book"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -26,6 +27,7 @@
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:background="#93CED6"
+        android:onClick="TrackPurchases"
         android:text="@string/track_10_purchases"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -41,7 +43,8 @@
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:background="#93CED6"
-        android:text="@string/search"
+        android:onClick="Shop"
+        android:text="@string/shop"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,6 +99,7 @@
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:background="#000000"
+        android:gravity="center"
         android:text="@string/welcome_back"
         android:textAlignment="center"
         android:textColor="#93CED6"
@@ -127,6 +131,7 @@
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:background="#93CED6"
+        android:onClick="ViewRooms1"
         android:text="@string/view_10_rooms"
         android:textColor="#000000"
         android:textSize="24sp"
@@ -138,10 +143,11 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="413dp"
-        android:layout_height="82dp"
+        android:layout_width="410dp"
+        android:layout_height="75dp"
         android:background="#93CED6"
-        android:text="ADVERTISEMENT"
+        android:gravity="center"
+        android:text="@string/advertisement"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="30sp"
@@ -151,4 +157,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7"
         app:layout_constraintVertical_bias="1.0" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
