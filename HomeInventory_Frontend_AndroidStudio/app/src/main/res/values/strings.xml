@@ -42,4 +42,13 @@
     <string name="add_item">ADD ITEM</string>
     <string name="view_items">VIEW ITEMS</string>
     <string name="ex_bread">EX: BREAD</string>
+    <string name="cabinet">CABINET</string>
+    <string name="ex_cabinet">EX: CABINET</string>
+    <string name="add_list">ADD LIST</string>
+    <string name="item_name">ITEM NAME</string>
+    <string name="quantity">QUANTITY</string>
+    <string name="item">ITEM</string>
+    <string name="price_book">PRICE BOOK</string>
+    <string name="item_purchased">ITEM PURCHASED</string>
+    <string name="price">PRICE</string>
 </resources>
