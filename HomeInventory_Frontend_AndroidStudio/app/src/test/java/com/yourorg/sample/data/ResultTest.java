@@ -8,5 +8,6 @@ public class ResultTest {
 
     @Test
     public void testToString() {
+
     }
 }
