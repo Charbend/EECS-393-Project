@@ -25,4 +25,10 @@ public class HomePageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PriceBookActivity.class);
         startActivity(intent);
     }
+
+    /** Called when the user taps the Price Book button */
+    public void Search(View view) {
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+    }
 }

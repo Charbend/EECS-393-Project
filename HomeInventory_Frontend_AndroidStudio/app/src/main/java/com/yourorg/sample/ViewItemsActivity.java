@@ -2,6 +2,7 @@ package com.yourorg.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -16,7 +17,7 @@ public class ViewItemsActivity extends AppCompatActivity {
 
     TextView textView;
     EditText et1, et2;
-    Button bt;
+    Button bt1, bt2;
     ListView lv1, lv2;
     ArrayList<String> arrayList1, arrayList2;
     ArrayAdapter<String> adapter1, adapter2;
@@ -28,13 +29,14 @@ public class ViewItemsActivity extends AppCompatActivity {
 
         et1 = findViewById(R.id.editText4);
         et2 = findViewById(R.id.editText6);
-        bt = findViewById(R.id.button10);
+        bt1 = findViewById(R.id.button10);
+        bt2 = findViewById(R.id.button12);
         lv1 = findViewById(R.id.listView_lv3);
         lv2 = findViewById(R.id.listView_lv4);
 
         textView = findViewById(R.id.textView19);
-        String room = getIntent().getStringExtra("ListViewListName");
-        textView.setText(room);
+        String list = getIntent().getStringExtra("ListViewListName");
+        textView.setText(list);
 
         arrayList1 = new ArrayList<String>();
         adapter1 = new ArrayAdapter<String>(ViewItemsActivity.this, android.R.layout.simple_list_item_1,
@@ -50,7 +52,7 @@ public class ViewItemsActivity extends AppCompatActivity {
     }
 
     public void onBtnClick() {
-        bt.setOnClickListener(new View.OnClickListener() {
+        bt1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -63,6 +65,14 @@ public class ViewItemsActivity extends AppCompatActivity {
                 adapter2.notifyDataSetChanged();
             }
         });
+
+    }
+    /** Called when the user taps the ADD USER button */
+    public void addUser(View view) {
+        Intent intent = new Intent(this, AddUserActivity.class);
+        String list = getIntent().getStringExtra("ListViewListName");
+        intent.putExtra("ListViewListName", list);
+        startActivity(intent);
     }
 }
 

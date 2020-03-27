@@ -40,7 +40,6 @@ public class ViewListsActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(ViewListsActivity.this, android.R.layout.simple_list_item_2,
                 android.R.id.text1, arrayList);
         lv.setAdapter(adapter);
-        // Add below and text1 above
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
