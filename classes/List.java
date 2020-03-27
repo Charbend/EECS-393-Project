@@ -1,55 +1,6 @@
 package classes;
+import java.util.ArrayList<E>;
 
-public class List {
-
-	//instance data
-	private List<Item> inventory;
-	private String title;
-	private List<User> users;
-	
-	
-	//constructors
-	public List(String name, User creator) {
-		title = name;
-		inventory = new ArrayList<Item>();
-		users = new ArrayList<User>();
-		users.add(creator)
-	}
-	
-	
-	//methods
-	public boolean addItem(Item item) {
-		return inventory.add(item);
-	}
-
-	public boolean removeItem(Item item) {
-		return inventory.remove(item);
-	}
-
-	public boolean addQuantity(int qty) {
-
-	}
-
-	public boolean removeQuantity(int qty) {
-
-	}
-
-	public boolean share(User user) {
-		return users.add(user);
-	}
-
-	public boolean delete() {
-		
-	}
-	
-	public User getUser() {
-		return users.get(0);
-	}
-
-
-}
-
-//@author Sharan Mehta
 //EECS 393 Project
 //Name : HomeInventory
 
@@ -67,6 +18,12 @@ public class List {
     user.setType(1);
     this.userList.add(user);
     this.itemList = null;
+  }
+	  
+   public boolean deleteList() {
+     this.listName = null;
+     this.itemList.clear();
+     this.userList.clear();
   }
   
   public boolean addItem(Item item) {
