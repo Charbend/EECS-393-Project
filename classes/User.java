@@ -1,4 +1,6 @@
 package classes;
+java.util.Scanner;
+java.util.ArrayList<E>
 
 //EECS 393 Project
 //Name : HomeInventory
