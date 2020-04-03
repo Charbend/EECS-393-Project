@@ -63,4 +63,11 @@ public class ViewListsActivity extends AppCompatActivity {
             }
         });
     }
+    /** Called when the user taps the ADD USER button */
+    public void addUser(View view) {
+        Intent intent = new Intent(this, AddUserActivity.class);
+        String list = getIntent().getStringExtra("ListViewListName");
+        intent.putExtra("ListViewListName", list);
+        startActivity(intent);
+    }
 }

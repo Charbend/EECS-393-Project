@@ -65,8 +65,8 @@ public class ViewItemsActivity extends AppCompatActivity {
                 adapter2.notifyDataSetChanged();
             }
         });
-
     }
+
     /** Called when the user taps the ADD USER button */
     public void addUser(View view) {
         Intent intent = new Intent(this, AddUserActivity.class);
