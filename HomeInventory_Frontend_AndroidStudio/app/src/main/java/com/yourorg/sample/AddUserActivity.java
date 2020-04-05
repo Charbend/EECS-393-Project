@@ -71,7 +71,7 @@ public class AddUserActivity extends AppCompatActivity {
             Toast.makeText(AddUserActivity.this,
                     "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
-        Intent intent = new Intent(this, ViewItemsActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, ViewItemsActivity.class);
+        //startActivity(intent);
     }
 }

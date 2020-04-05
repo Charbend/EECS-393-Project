@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class ViewRooms1Activity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(ViewRooms1Activity.this, android.R.layout.simple_list_item_2,
                 android.R.id.text1, arrayList);
         lv.setAdapter(adapter);
-        // Add below and text1 above
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -49,15 +50,24 @@ public class ViewRooms1Activity extends AppCompatActivity {
     }
 
     public void onBtnClick() {
+
         bt.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 String result = et.getText().toString();
-                arrayList.add(result);
-                adapter.notifyDataSetChanged();
+                // Added below to display message if empty submission
+                if (result.length() == 0)
+                    noRoomError();
+                else {
+                    arrayList.add(result);
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
     }
-
+    // Added below to display message if empty submission
+    public void noRoomError() {
+       Toast.makeText(ViewRooms1Activity.this, "noRoomError. Please input a room name.", Toast.LENGTH_LONG).show();
+    }
 }

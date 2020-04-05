@@ -126,14 +126,14 @@
 
     <Button
         android:id="@+id/button12"
-        android:layout_width="166dp"
+        android:layout_width="140dp"
         android:layout_height="22dp"
         android:background="#FFFFFF"
         android:onClick="addUser"
         android:text="@string/add_user"
         app:layout_constraintBottom_toBottomOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.962" />

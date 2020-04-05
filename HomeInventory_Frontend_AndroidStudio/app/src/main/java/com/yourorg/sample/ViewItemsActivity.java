@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class ViewItemsActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView19);
         String list = getIntent().getStringExtra("ListViewListName");
-        textView.setText(list);
+        textView.setText("List: " + list);
 
         arrayList1 = new ArrayList<String>();
         adapter1 = new ArrayAdapter<String>(ViewItemsActivity.this, android.R.layout.simple_list_item_1,
@@ -56,23 +57,33 @@ public class ViewItemsActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String result1 = et1.getText().toString();
-                arrayList1.add(result1);
-                adapter1.notifyDataSetChanged();
 
+                String result1 = et1.getText().toString();
                 String result2 = et2.getText().toString();
-                arrayList2.add(result2);
-                adapter2.notifyDataSetChanged();
+                // Added below to display message if empty item name or quantity submission
+                if (result1.length() == 0 || result2.length() == 0)
+                    noItemError();
+                else {
+                    arrayList1.add(result1);
+                    adapter1.notifyDataSetChanged();
+
+                    arrayList2.add(result2);
+                    adapter2.notifyDataSetChanged();
+                }
             }
         });
-
     }
+
     /** Called when the user taps the ADD USER button */
     public void addUser(View view) {
         Intent intent = new Intent(this, AddUserActivity.class);
         String list = getIntent().getStringExtra("ListViewListName");
         intent.putExtra("ListViewListName", list);
         startActivity(intent);
+    }
+    // Added below to display message if empty item submission
+    public void noItemError() {
+        Toast.makeText(ViewItemsActivity.this, "noItemError. Please input an item name and quantity.", Toast.LENGTH_LONG).show();
     }
 }
 
