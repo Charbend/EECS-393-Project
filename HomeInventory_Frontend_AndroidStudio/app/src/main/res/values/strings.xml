@@ -62,4 +62,7 @@
     <string name="location_npurchased">LOCATION\nPURCHASED</string>
     <string name="category">CATEGORY</string>
     <string name="track_purchases">TRACK PURCHASES</string>
+    <string name="data_visualization">DATA VISUALIZATION</string>
+    <string name="select_timeframe_below">SELECT TIMEFRAME BELOW</string>
+    <string name="perform_data_nvisualization">PERFORM DATA\nVISUALIZATION</string>
 </resources>

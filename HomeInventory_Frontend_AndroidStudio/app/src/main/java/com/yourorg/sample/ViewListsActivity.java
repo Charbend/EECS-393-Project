@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class ViewListsActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView18);
         String room = getIntent().getStringExtra("ListViewRoomName");
-        textView.setText(room);
+        textView.setText("Room: " + room);
 
         arrayList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(ViewListsActivity.this, android.R.layout.simple_list_item_2,
@@ -58,8 +59,13 @@ public class ViewListsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String result = et.getText().toString();
-                arrayList.add(result);
-                adapter.notifyDataSetChanged();
+                // Added below to display message if empty list name submission
+                if (result.length() == 0)
+                    noListError();
+                else {
+                    arrayList.add(result);
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
     }
@@ -69,5 +75,10 @@ public class ViewListsActivity extends AppCompatActivity {
         String list = getIntent().getStringExtra("ListViewListName");
         intent.putExtra("ListViewListName", list);
         startActivity(intent);
+    }
+
+    // Added below to display message if empty list submission
+    public void noListError() {
+        Toast.makeText(ViewListsActivity.this, "noListError. Please input a list name.", Toast.LENGTH_LONG).show();
     }
 }

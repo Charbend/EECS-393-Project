@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TrackPurchasesActivity"></activity>
+        <activity android:name=".DataVisualizationActivity"></activity>
+        <activity android:name=".TrackPurchasesActivity" />
         <activity android:name=".AddUserActivity" />
         <activity android:name=".ShopActivity" />
         <activity android:name=".PriceBookActivity" />

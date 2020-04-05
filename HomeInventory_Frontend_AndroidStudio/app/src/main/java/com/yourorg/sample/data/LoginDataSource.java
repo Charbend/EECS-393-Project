@@ -1,5 +1,8 @@
 package com.yourorg.sample.data;
 
+import android.widget.Toast;
+
+import com.yourorg.sample.ViewItemsActivity;
 import com.yourorg.sample.data.model.LoggedInUser;
 
 import java.io.IOException;
