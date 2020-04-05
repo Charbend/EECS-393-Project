@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+[0.0.3] 2020 - 05 - 04 : McKenzie Hawkins
+### Added
+-error checking for submission of empty fields
+
 [0.0.3] 2020 - 27 - 03 : McKenzie Hawkins
 ### Added
 -multiple screens (view rooms, lists, items, price book, etc.) and 3 JUnit4 tests
