@@ -15,4 +15,12 @@ public class ViewListsActivityTest {
     @Test
     public void onBtnClick() {
     }
+
+    @Test
+    public void addUser() {
+    }
+
+    @Test
+    public void noListError() {
+    }
 }

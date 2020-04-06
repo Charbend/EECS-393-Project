@@ -14,25 +14,25 @@ public class HomePageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
     }
 
-    /** Called when the user taps the View Rooms button */
+    // Called when the user taps the View Rooms button, transfers them to ViewRooms1Activity
     public void ViewRooms1(View view) {
         Intent intent = new Intent(this, ViewRooms1Activity.class);
         startActivity(intent);
     }
 
-    /** Called when the user taps the Price Book button */
+    // Called when the user taps the Price Book button, transfers them to PriceBookActivity
     public void PriceBook(View view) {
         Intent intent = new Intent(this, PriceBookActivity.class);
         startActivity(intent);
     }
 
-    /** Called when the user taps the Track Purchases button */
+    // Called when the user taps the Track Purchases button, transfers them to TrackPurchasesActivity
     public void TrackPurchases(View view) {
         Intent intent = new Intent(this, TrackPurchasesActivity.class);
         startActivity(intent);
     }
 
-    /** Called when the user taps the Price Book button */
+    // Called when the user taps the Price Book button, transfers them to ShopActivity
     public void Shop(View view) {
         Intent intent = new Intent(this, ShopActivity.class);
         startActivity(intent);

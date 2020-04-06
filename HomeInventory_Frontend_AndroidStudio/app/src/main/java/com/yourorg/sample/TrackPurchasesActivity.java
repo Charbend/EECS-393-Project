@@ -14,7 +14,7 @@ public class TrackPurchasesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_track_purchases);
     }
 
-    /** Called when the user taps the ADD USER button */
+    // Called when the user taps the Data Visualization button, transfers them to DataVisualizationActivity
     public void DataVisualization(View view) {
         Intent intent = new Intent(this, DataVisualizationActivity.class);
         startActivity(intent);

@@ -13,4 +13,8 @@ public class SignUpActivityTest {
     @Test
     public void signUpSuccess() {
     }
+
+    @Test
+    public void missingSignUpErrorTest() {
+    }
 }
