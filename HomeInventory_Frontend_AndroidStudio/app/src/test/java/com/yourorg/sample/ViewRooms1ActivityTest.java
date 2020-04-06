@@ -13,4 +13,8 @@ public class ViewRooms1ActivityTest {
     @Test
     public void onBtnClick() {
     }
+
+    @Test
+    public void noRoomError() {
+    }
 }

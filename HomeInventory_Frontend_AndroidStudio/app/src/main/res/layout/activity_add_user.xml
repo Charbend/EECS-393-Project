@@ -86,7 +86,7 @@
         android:layout_width="175dp"
         android:layout_height="73dp"
         android:background="#93CED6"
-        android:onClick="toList"
+        android:onClick="setAddUser"
         android:text="@string/add_user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

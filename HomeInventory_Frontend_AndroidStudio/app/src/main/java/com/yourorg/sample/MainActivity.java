@@ -80,13 +80,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /** Called when the user taps the LOG-IN button */
+    // Called when the user taps the LOG-IN button, transfers them to LogInActivity
     public void logIn(View view) {
         Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
     }
 
-    /** Called when the user taps the SIGN UP button */
+    // Called when the user taps the SIGN UP button, transfers them to SignUpActivity
     public void signUp(View view) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);

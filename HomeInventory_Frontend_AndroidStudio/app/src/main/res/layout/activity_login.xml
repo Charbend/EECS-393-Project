@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="0.589" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/loginButton"
         android:layout_width="175dp"
         android:layout_height="50dp"
         android:layout_gravity="start"
@@ -87,9 +87,9 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="121dp"
-        android:layout_height="63dp"
-        android:text="@string/log_in"
+        android:layout_width="196dp"
+        android:layout_height="65dp"
+        android:text="Log In (Old)"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="#000000"
