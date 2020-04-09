@@ -12,7 +12,7 @@
         android:layout_height="75dp"
         android:background="#93CED6"
         android:gravity="center|top"
-        android:text="@string/track_purchases"
+        android:text="@string/track_online_npurchases"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="30sp"

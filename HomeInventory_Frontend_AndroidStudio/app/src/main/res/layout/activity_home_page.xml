@@ -28,7 +28,7 @@
         android:layout_height="75dp"
         android:background="#93CED6"
         android:onClick="TrackPurchases"
-        android:text="@string/track_10_purchases"
+        android:text="@string/track_online_npurchases"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

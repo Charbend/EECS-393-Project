@@ -65,4 +65,5 @@
     <string name="data_visualization">DATA VISUALIZATION</string>
     <string name="select_timeframe_below">SELECT TIMEFRAME BELOW</string>
     <string name="perform_data_nvisualization">PERFORM DATA\nVISUALIZATION</string>
+    <string name="track_online_npurchases">TRACK ONLINE\nPURCHASES</string>
 </resources>
