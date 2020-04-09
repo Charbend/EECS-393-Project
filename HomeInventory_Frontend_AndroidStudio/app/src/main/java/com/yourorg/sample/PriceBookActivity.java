@@ -62,6 +62,11 @@ public class PriceBookActivity extends AppCompatActivity {
                 if (itemEntry.length() == 0 || quantityEntry.length() == 0 || priceEntry.length() == 0
                         || locationEntry.length() == 0 || categoryEntry.length() == 0)
                     noPriceBookItemError();
+                // Checks for invalid price entry, NEED TO GET WORKING
+                /*else if (Double.parseDouble(et3.getText().toString()) == 0) {
+                    (et1.getClass().getSimpleName().equals(int))
+                    invalidPriceBookItemError();
+                } */
                 else {
                     // MIGHT HAVE TO CHANGE THIS FOR MONGODB
                     // Adds the text to the list view
@@ -77,5 +82,12 @@ public class PriceBookActivity extends AppCompatActivity {
     // Displays message if missing price book field submission
     public void noPriceBookItemError() {
         Toast.makeText(PriceBookActivity.this, "noPriceBookItemError. Please fill all the fields ", Toast.LENGTH_LONG).show();
+    }
+
+    // Displays message if missing price book field submission
+    public void invalidPriceBookItemError() {
+        Toast.makeText(PriceBookActivity.this, "invalidPriceBookItemError. Please enter a string or int for item name," +
+                " integer for quantity, double for cost, string for location purchased," +
+                " and string for category.", Toast.LENGTH_LONG).show();
     }
 }
