@@ -9,13 +9,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Removed
 
+[0.0.3] 2020 - 09 - 04 : McKenzie Hawkins
+### Removed
+-local.properties and new log in screen to reduce confusion
+
 ### Fixed
 
 ### Added
 
 [0.0.3] 2020 - 06 - 04 : McKenzie Hawkins
-### Add
--cleaned UI, added email verification, commented code, 
+### Added
+-cleaned UI, added email verification, commented code
 
 [0.0.3] 2020 - 05 - 04 : McKenzie Hawkins
 ### Added
