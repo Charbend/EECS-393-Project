@@ -16,7 +16,7 @@ public class LoggedInUserViewTest {
         displayName = "John";
     }
 
-    // Successful Unit Test
+    // Successful JUnit Test, McKenzie Hawkins, 4/9/2020
     // Checks if getDisplayName() returns correct name
     @Test
     public void getDisplayNameTest() {
