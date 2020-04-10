@@ -100,7 +100,7 @@
         android:layout_height="50dp"
         android:background="#000000"
         android:gravity="center"
-        android:text="@string/welcome_back"
+        android:text="@string/welcome"
         android:textAlignment="center"
         android:textColor="#93CED6"
         android:textSize="30sp"
