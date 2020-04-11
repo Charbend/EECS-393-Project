@@ -9,19 +9,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Removed
 
+[0.0.3] 2020 - 09 - 04 : McKenzie Hawkins
+### Removed
+-local.properties and new log in screen to reduce confusion
+
 ### Fixed
 
 ### Added
 
-[0.0.4] 2020 - 05 - 04 : Drew Heald
+[0.0.3] 2020 - 06 - 04 : McKenzie Hawkins
 ### Added
--"using the API" doc that describes how to use the API, mostly how I've been using it with curl
--"db object formats" doc that describes how data is currently expected to be stored in the db
--Additional collections in the db for each expected data type
--installed Jest for JS unit testing
-
-### Changed
--Updated the API to have routes for all the new collections
+-cleaned UI, added email verification, commented code
 
 [0.0.3] 2020 - 05 - 04 : McKenzie Hawkins
 ### Added
@@ -45,7 +43,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 [0.0.3] 2020 - 20 - 03 : McKenzie Hawkins
 ### Added
--Frontend template
+-Frontend template  
 
 [0.0.2] 2020 - 11 - 03 : Drew Heald
 ### Added

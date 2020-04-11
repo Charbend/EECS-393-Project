@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class ViewRooms1Activity extends AppCompatActivity {
 
+    // Local variables to represent layout objects
     EditText et;
     Button bt;
     ListView lv;
@@ -28,15 +29,17 @@ public class ViewRooms1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_rooms1);
 
+        // Sets local variables equal to layout objects
         et = findViewById(R.id.editText2);
         bt = findViewById(R.id.button8);
         lv = findViewById(R.id.listView_lv);
 
+        // Sets the list view to add text to
         arrayList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(ViewRooms1Activity.this, android.R.layout.simple_list_item_2,
                 android.R.id.text1, arrayList);
         lv.setAdapter(adapter);
-
+        // Lets the user click on a room to get transferred to the ViewListsActivity for that room
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -55,18 +58,21 @@ public class ViewRooms1Activity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String result = et.getText().toString();
+                // Gets text from edit text fields
+                String roomName = et.getText().toString();
                 // Added below to display message if empty submission
-                if (result.length() == 0)
+                if (roomName.length() == 0)
                     noRoomError();
+                // Adds room name to the room view
                 else {
-                    arrayList.add(result);
+                    arrayList.add(roomName);
                     adapter.notifyDataSetChanged();
                 }
             }
         });
     }
-    // Added below to display message if empty submission
+
+    // Displays message if empty submission
     public void noRoomError() {
        Toast.makeText(ViewRooms1Activity.this, "noRoomError. Please input a room name.", Toast.LENGTH_LONG).show();
     }

@@ -17,4 +17,8 @@ public class ViewItemsActivityTest {
     @Test
     public void addUser() {
     }
+
+    @Test
+    public void noItemError() {
+    }
 }
