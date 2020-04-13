@@ -25,11 +25,11 @@ public class Budget {
 		this.spent += value;
 	}
 
-	public double getSpent() {
+	public Double getSpent() {
 		return this.spent;
 	}
 
-	public double getAmount() {
+	public Double getAmount() {
 		return this.amount;
 	}
 	
