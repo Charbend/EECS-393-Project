@@ -26,6 +26,8 @@ public class ItemTest {
   Item item3 = new Item(itemName, qty3, price2, category, location);
   Item item4 = new Item(itemName, qty1, price3, category);
 
+  //test getter methods
+  
   //test getName method
   @Test
   public void test_Name() {
@@ -109,6 +111,51 @@ public class ItemTest {
     assertEquals(retailer, output3);
     assertEquals(retailer, output4);    
   }
-
-
+  
+  //test setter methods
+  
+  //test setLocation method
+  @Test
+  public void test_Location() {
+    //new location varible
+    String newLocation = "bedroom";    
+    
+    item1.setLocation(newLocation);
+    item2.setLocation(newLocation);
+    item3.setLocation(newLocation);
+    item4.setLocation(newLocation);
+    
+    String output1 = item1.getLocation();
+    String output2 = item2.getLocation();
+    String output3 = item3.getLocation();
+    String output4 = item4.getLocation();
+    
+    assertEquals(newLocation, output1);
+    assertEquals(newLocation, output2);
+    assertEquals(newLocation, output3);
+    assertEquals(newLocation, output4);    
+  }
+  
+  //test setRetailer method
+  @Test
+  public void test_Location() {
+    //new location varible
+    Retailer newRetailer; // = new Retailer(  );    
+    
+    item1.setRetailer(newRetailer);
+    item2.setRetailer(newRetailer);
+    item3.setRetailer(newRetailer);
+    item4.setRetailer(newRetailer);
+    
+    Retailer output1 = item1.getRetailer();
+    Retailer output2 = item2.getRetailer();
+    Retailer output3 = item3.getRetailer();
+    Retailer output4 = item4.getRetailer();
+    
+    assertEquals(newRetailer, output1);
+    assertEquals(newRetailer, output2);
+    assertEquals(newRetailer, output3);
+    assertEquals(newRetailer, output4);    
+  }
+  
 }
