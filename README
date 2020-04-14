@@ -9,3 +9,15 @@ Git pull to get up to date
 Fork a new branch so you don't work on the master branch
 When satisfied that your code works, commit it
 We can then merge any code back into the master branch
+
+HomeInventory User Manual
+1. How to Run/SDK Platform
+  1.1 Have only Android 10.0 (Q) checked for SDK Platforms.
+  1.2 Use Pixel API 29 as the emulator.
+  1.3 Following is a list of SDK tools that were used-- make sure all tools are up to date:
+    1.3.1 Android SDK Build-Tools 30-rc2
+    1.3.2 NDK (Side by side)
+    1.3.3 CMake
+    1.3.4 Android Emulator (Version 30.0.5)
+    1.3.5 Android SDK Platform-Tools (Version 29.0.6)
+    1.3.6 Intel x86 Emulator Accelerator (HAXM installer) (Version 7.5.6)
