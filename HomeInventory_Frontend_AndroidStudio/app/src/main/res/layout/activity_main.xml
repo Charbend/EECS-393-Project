@@ -4,22 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#93CED6"
+    android:backgroundTint="#93CED6"
     tools:context="com.yourorg.sample.MainActivity">
 
     <TextView
         android:id="@+id/tvVersions"
-        android:layout_width="418dp"
-        android:layout_height="736dp"
+        android:layout_width="264dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:background="#93CED6"
         android:backgroundTint="#93CED6"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.129" />
 
     <Button
         android:id="@+id/btVersions"
