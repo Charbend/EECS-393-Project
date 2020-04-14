@@ -4,7 +4,7 @@
   "description": "EECS 393 Project using MongoDB to store data",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,16 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongodb": "^3.5.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/HomeInventory_Frontend_AndroidStudio"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^25.2.7",
+    "supertest": "^4.0.2"
   }
 }

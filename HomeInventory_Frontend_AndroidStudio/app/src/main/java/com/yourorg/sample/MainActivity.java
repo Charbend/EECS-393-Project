@@ -8,9 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import java.net.*;
 import java.io.*;
+import java.util.Map;
+
 import android.content.Intent;
 
 import com.yourorg.sample.ui.login.LogInActivity;
+
+import javax.net.ssl.SSLContext;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,19 +38,36 @@ public class MainActivity extends AppCompatActivity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    startNodeWithArguments(new String[]{"node", "-e",
-                            "var http = require('http'); " +
-                                    "var versions_server = http.createServer( (request, response) => { " +
+                    // Part of my attempt to start node
+                    /*try {
+                        ProcessBuilder processBuilder = new ProcessBuilder("node server.js");
+                        processBuilder = processBuilder.directory(new File("PATH TO server.js"));
+                        Process process = processBuilder.start();
+                        BufferedReader reader = new BufferedReader(
+                                new InputStreamReader(process.getInputStream()));
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            System.out.println(line);
+                        }
+
+                        reader.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }*/
+
+                    /*startNodeWithArguments(new String[]{"node", "-e",
+                            "var http = require('https'); " +
+                                    "var versions_server = https.createServer( (request, response) => { " +
                                     "  response.end('Versions: ' + JSON.stringify(process.versions)); " +
                                     "}); " +
-                                    "versions_server.listen(3000);"
-                    });
+                                    "versions_server.listen(4000);"
+                    });*/
                 }
             }).start();
         }
 
-        final Button buttonVersions = (Button) findViewById(R.id.btVersions);
-        final TextView textViewVersions = (TextView) findViewById(R.id.tvVersions);
+        final Button buttonVersions = findViewById(R.id.btVersions);
+        final TextView textViewVersions = findViewById(R.id.tvVersions);
 
         buttonVersions.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -57,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
                     protected String doInBackground(Void... params) {
                         String nodeResponse="";
                         try {
-                            URL localNodeServer = new URL("localhost:3000/");
+                            URL localNodeServer = new URL("https://localhost:4000/");
+                            // Address for router and emualtor?
+                            //URL localNodeServer = new URL("https://10.0.2.2:4000/");
                             BufferedReader in = new BufferedReader(
                                     new InputStreamReader(localNodeServer.openStream()));
                             String inputLine;
