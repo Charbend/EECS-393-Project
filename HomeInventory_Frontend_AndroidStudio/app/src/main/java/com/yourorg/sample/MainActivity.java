@@ -75,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
                         String nodeResponse="";
                         try {
                             // Original URL
-                            URL localNodeServer = new URL("localhost:4000/");
-                            // Address for router and emualtor?
-                            //URL localNodeServer = new URL("https://10.0.2.2:4000/");
+                            //URL localNodeServer = new URL("https://localhost:4000/");
+                            // Address that connects emulator with your localhost
+                            URL localNodeServer = new URL("https://10.0.2.2:4000/");
                             BufferedReader in = new BufferedReader(
                                     new InputStreamReader(localNodeServer.openStream()));
                             String inputLine;
