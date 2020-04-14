@@ -30,6 +30,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
+[0.0.4] 2020 - 14 - 04 : McKenzie Hawkins
+### Added
+-added node connectivity message and attempt at connecting
+
 [0.0.3] 2020 - 06 - 04 : McKenzie Hawkins
 ### Added
 -cleaned UI, added email verification, commented code
