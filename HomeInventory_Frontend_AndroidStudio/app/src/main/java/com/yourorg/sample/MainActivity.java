@@ -12,8 +12,6 @@ import java.util.Map;
 
 import android.content.Intent;
 
-import com.yourorg.sample.ui.login.LogInActivity;
-
 import javax.net.ssl.SSLContext;
 
 
@@ -110,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Called when the user taps the LOG-IN button, transfers them to LogInActivity
+    // Called when the user taps the LOG-IN button, transfers them to LogInActivity2
     public void logIn(View view) {
-        Intent intent = new Intent(this, LogInActivity.class);
+        Intent intent = new Intent(this, LogInActivity2.class);
         startActivity(intent);
     }
 
