@@ -66,8 +66,9 @@ public class ViewListsActivity extends AppCompatActivity {
                 // Gets text from edit text fields
                 String listEntry = et.getText().toString();
                 // Added below to display message if empty list name submission
-                if (listEntry.length() == 0)
-                    noListError();
+                if (noListError(listEntry))
+                Toast.makeText(ViewListsActivity.this, "noListError. Please input a list name.", Toast.LENGTH_LONG).show();
+
                 // Adds list name to the list view
                 else {
                     arrayList.add(listEntry);
@@ -87,7 +88,11 @@ public class ViewListsActivity extends AppCompatActivity {
     }
 
     // Displays message if empty list submission
-    public void noListError() {
-        Toast.makeText(ViewListsActivity.this, "noListError. Please input a list name.", Toast.LENGTH_LONG).show();
+    public boolean noListError(String list) {
+        boolean result = false;
+        if (list.length() == 0){
+            result = true;
+        }
+        return result;
     }
 }

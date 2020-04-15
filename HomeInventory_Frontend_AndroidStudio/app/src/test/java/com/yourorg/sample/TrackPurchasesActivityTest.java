@@ -9,4 +9,9 @@ public class TrackPurchasesActivityTest {
     @Test
     public void onCreate() {
     }
+
+    @Test
+    public void DataVisualization(){
+
+    }
 }

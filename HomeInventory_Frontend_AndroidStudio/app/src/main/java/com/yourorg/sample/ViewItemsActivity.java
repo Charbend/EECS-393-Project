@@ -60,8 +60,9 @@ public class ViewItemsActivity extends AppCompatActivity {
                 String itemName = et1.getText().toString();
                 String quantity = et2.getText().toString();
                 // Checks if itemName and quantity are empty
-                if (itemName.length() == 0 || quantity.length() == 0)
-                    noItemError();
+                if (noItemError(itemName))
+                Toast.makeText(ViewItemsActivity.this, "noItemError. Please input an item name and quantity.", Toast.LENGTH_LONG).show();
+
                 // Adds itemName and quantity to the list view
                 else {
                     arrayList1.add("Item: " + itemName + ", " + "Quantity: " + quantity);
@@ -81,8 +82,12 @@ public class ViewItemsActivity extends AppCompatActivity {
         startActivity(intent);
     }
     // Displays message if missing item field submission
-    public void noItemError() {
-        Toast.makeText(ViewItemsActivity.this, "noItemError. Please input an item name and quantity.", Toast.LENGTH_LONG).show();
+    public boolean noItemError(String itemName) {
+        boolean result = false;
+        if (itemName.length() == 0){
+            result = true;
+        }
+        return result;
     }
 }
 
