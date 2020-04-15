@@ -61,8 +61,9 @@ public class ViewRooms1Activity extends AppCompatActivity {
                 // Gets text from edit text fields
                 String roomName = et.getText().toString();
                 // Added below to display message if empty submission
-                if (roomName.length() == 0)
-                    noRoomError();
+                if (noRoomError(roomName))
+                Toast.makeText(ViewRooms1Activity.this, "noRoomError. Please input a room name.", Toast.LENGTH_LONG).show();
+
                 // Adds room name to the room view
                 else {
                     arrayList.add(roomName);
@@ -73,7 +74,12 @@ public class ViewRooms1Activity extends AppCompatActivity {
     }
 
     // Displays message if empty submission
-    public void noRoomError() {
-       Toast.makeText(ViewRooms1Activity.this, "noRoomError. Please input a room name.", Toast.LENGTH_LONG).show();
+    public boolean noRoomError(String name) {
+        boolean result = false;
+        if (name.length() == 0){
+            result = true;
+        }
+        return result;
     }
 }
+

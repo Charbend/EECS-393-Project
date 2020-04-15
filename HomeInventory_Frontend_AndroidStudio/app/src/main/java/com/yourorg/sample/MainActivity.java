@@ -8,9 +8,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import java.net.*;
 import java.io.*;
+import java.util.Map;
+
 import android.content.Intent;
 
 import com.yourorg.sample.ui.login.LogInActivity;
+
+import javax.net.ssl.SSLContext;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -62,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
             }).start();
         }
 
-        final Button buttonVersions = (Button) findViewById(R.id.btVersions);
-        final TextView textViewVersions = (TextView) findViewById(R.id.tvVersions);
+        final Button buttonVersions = findViewById(R.id.btVersions);
+        final TextView textViewVersions = findViewById(R.id.tvVersions);
 
         buttonVersions.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -74,10 +78,16 @@ public class MainActivity extends AppCompatActivity {
                     protected String doInBackground(Void... params) {
                         String nodeResponse="";
                         try {
+
+                            //URL localNodeServer = new URL("https://localhost:4000/");
+                            // Address for router and emualtor?
+                            //URL localNodeServer = new URL("https://10.0.2.2:4000/");
+
                             // Original URL
                             //URL localNodeServer = new URL("https://localhost:4000/");
                             // Address that connects emulator with your localhost. Enter this into emulator browser.
                             URL localNodeServer = new URL("https://10.0.2.2:4000/");
+
                             BufferedReader in = new BufferedReader(
                                     new InputStreamReader(localNodeServer.openStream()));
                             String inputLine;

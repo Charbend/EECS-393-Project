@@ -43,31 +43,31 @@ public class SignUpActivity extends AppCompatActivity {
         String confirmPassword = et4.getText().toString();
 
         // Checks for empty fields and password equivalence
-        if (name.length() == 0 || email.length() == 0 || password.length() == 0
-                || confirmPassword.length() == 0)
-            missingSignUpError();
-        // Checks for valid email
-        else if (!isValidEmail(email))
-            invalidSignUpError();
+        if (missingSignUpError(name, email, password, confirmPassword))
+            Toast.makeText(SignUpActivity.this, "missingSignUpError. Please fill all the fields.", Toast.LENGTH_LONG).show();
+
+            // Checks for valid email
+        else if (invalidSignUpError(email))
+            Toast.makeText(SignUpActivity.this, "invalidSignUpError. Please enter a valid email.", Toast.LENGTH_LONG).show();
         else if (!password.equals(confirmPassword))
             Toast.makeText(SignUpActivity.this, "Passwords don't match! Please try again.", Toast.LENGTH_LONG).show();
         else
             startActivity(intent);
     }
 
-    // Checks for if email is valid
-    public boolean isValidEmail(CharSequence enteredEmail) {
-        return (!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches());
-    }
-
     // Displays message if missing sign up field submission
-    public void missingSignUpError() {
-        Toast.makeText(SignUpActivity.this, "missingSignUpError. Please fill all the fields.", Toast.LENGTH_LONG).show();
+    public boolean missingSignUpError(String userName, String userEmail, String userPass, String userConfPass) {
+        boolean result = false;
+        if (userName.length() == 0 || userEmail.length() == 0 || userPass.length() == 0
+                || userConfPass.length() == 0) {
+            result = true;
+        }
+        return result;
     }
 
     // Displays message if invalid sign up field submission
-    public void invalidSignUpError() {
-        Toast.makeText(SignUpActivity.this, "invalidSignUpError. Please enter a valid email.", Toast.LENGTH_LONG).show();
+    public boolean invalidSignUpError(CharSequence enteredEmail) {
+        return (!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches());
     }
 
 }

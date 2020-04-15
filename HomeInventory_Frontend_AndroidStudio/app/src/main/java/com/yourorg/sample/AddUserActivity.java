@@ -48,32 +48,33 @@ public class AddUserActivity extends AppCompatActivity {
         /*addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 email = emailInput.getText().toString();
                 name = nameInput.getText().toString();
                 sendEmail(email, name);
-
             }
         });*/
     }
 
     // Called when the user taps the Add User button
     public boolean setAddUser(View view) {
-        
+
         //initializing action complete value
         boolean result = false;
-        
+
         // Gets text from edit text fields
         String enteredEmail = emailInput.getText().toString();
         String enteredName = nameInput.getText().toString();
 
         // Checks for empty fields
-        if (noSecondaryUserError(enteredEmail) || noSecondaryUserError(enteredName))
-            result = false;
-        // Checks for valid user by checking for valid email
-        else if (invalidSecondaryUserError()){
+
+        if (noSecondaryUserError(enteredEmail, enteredName)) {
+            Toast.makeText(AddUserActivity.this, "noSecondaryUserError. Please fill all the fields.", Toast.LENGTH_LONG).show();
             result = false;
         }
+            // Checks for valid user by checking for valid email
+        else if (invalidSecondaryUserError(enteredEmail)){
+            Toast.makeText(AddUserActivity.this, "invalidSecondaryUserError. Please enter a valid email.", Toast.LENGTH_LONG).show();
+
         // Returns to previous activity
         else {
             //result = sendEmail(email, name);
@@ -89,10 +90,10 @@ public class AddUserActivity extends AppCompatActivity {
     // NOT WORKING, supposed to send email to the added user
     /* Called when the user taps the Add User button */
     protected boolean sendEmail(String toEmail, String toName) {
-        
+
         //initializing action complete value
-        boolean result = false;
-        
+        boolean result = false;        
+
         Log.i("Send email", "");
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
@@ -119,28 +120,21 @@ public class AddUserActivity extends AppCompatActivity {
         return result;
     }
 
-    // Checks if email is valid
-    public boolean isValidEmail(CharSequence enteredEmail) {
-        return (!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches());
-    }
-
     // Added below to display message if missing fields
-    public boolean noSecondaryUserError(String text) {
+    public boolean noSecondaryUserError(String addedEmail, String addedName) {
         boolean result = false;
-        if (text.length()==0){
+        if (addedEmail.length()==0 || addedName.length()==0){
             result = true;
-            Toast.makeText(AddUserActivity.this, "noSecondaryUserError. Please fill all the fields.", Toast.LENGTH_LONG).show();
         }
-        return result
+        return result;
     }
 
     // Added below to display message if invalid email submission
-    public boolean invalidSecondaryUserError() {
+    public boolean invalidSecondaryUserError(CharSequence enteredEmail) {
         boolean result = false;
-        if (!isValidEmail(enteredEmail)){
+        if (!(!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches())){
             result = true;
-            Toast.makeText(AddUserActivity.this, "invalidSecondaryUserError. Please enter a valid email.", Toast.LENGTH_LONG).show();
-        }
+          }
         return result;
     }
 }
