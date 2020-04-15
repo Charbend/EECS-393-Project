@@ -20,14 +20,21 @@ public class ViewItemsActivityTest {
     public void addUser() {
     }
 
-    // Tests false for a item name, true for an empty field
+    // Tests false for a item name and item quantity, true for an empty field
     // Test Successful, McKenzie Hawkins 4/15/2020
     @Test
     public void noItemErrorTest() {
-        // Asserts a false value is returned upon a string
-        assertFalse(viewItemsInst.noItemError("test"));
 
-        // Asserts a true value is returned upon an empty field
-        assertTrue(viewItemsInst.noItemError(""));
+        // Asserts a false value is returned upon a string
+        assertFalse(viewItemsInst.noItemError("cereal", "3"));
+
+        // Asserts a true value is returned upon an itemName
+        assertTrue(viewItemsInst.noItemError("", "3"));
+
+        // Asserts a true value is returned upon an itemQuantity
+        assertTrue(viewItemsInst.noItemError("cereal", ""));
+
+        // Asserts a true value is returned upon all empty fields
+        assertTrue(viewItemsInst.noItemError("", ""));
     }
 }
