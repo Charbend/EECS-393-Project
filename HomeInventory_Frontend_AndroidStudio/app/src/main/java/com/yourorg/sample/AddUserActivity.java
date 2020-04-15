@@ -76,7 +76,8 @@ public class AddUserActivity extends AppCompatActivity {
         }
         // Returns to previous activity
         else {
-            result = sendEmail(email, name);
+            //result = sendEmail(email, name);
+            result = true;
             //Intent intent = new Intent(this, ViewItemsActivity.class);
             //startActivity(intent);
             finish();
