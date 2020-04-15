@@ -71,70 +71,72 @@ public class AddUserActivity extends AppCompatActivity {
             Toast.makeText(AddUserActivity.this, "noSecondaryUserError. Please fill all the fields.", Toast.LENGTH_LONG).show();
             result = false;
         }
-            // Checks for valid user by checking for valid email
-        else if (invalidSecondaryUserError(enteredEmail)){
+        // Checks for valid user by checking for valid email
+        else if (invalidSecondaryUserError(enteredEmail))
             Toast.makeText(AddUserActivity.this, "invalidSecondaryUserError. Please enter a valid email.", Toast.LENGTH_LONG).show();
 
-        // Returns to previous activity
-        else {
-            //result = sendEmail(email, name);
-            result = true;
+            // Returns to previous activity
+        else{
+                //result = sendEmail(email, name);
+                result = true;
+                //Intent intent = new Intent(this, ViewItemsActivity.class);
+                //startActivity(intent);
+                finish();
+            }
+            //returning action complete value
+            return result;
+        }
+    
+
+        // NOT WORKING, supposed to send email to the added user
+        /* Called when the user taps the Add User button */
+        protected boolean sendEmail (String toEmail, String toName){
+
+            //initializing action complete value
+            boolean result = false;
+
+            Log.i("Send email", "");
+
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setDataAndType(Uri.parse("mailto:"), "text/plain");
+
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, toEmail);
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "You have been invited to a HomeInventory List");
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "You have been invited to a HomeInventory List");
+
+            try {
+                startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                Log.i("Finished sending email", "");
+                result = true;
+                finish();
+            } catch (android.content.ActivityNotFoundException ex) {
+                result = false;
+                Toast.makeText(AddUserActivity.this,
+                        "There is no email client installed.", Toast.LENGTH_SHORT).show();
+            }
             //Intent intent = new Intent(this, ViewItemsActivity.class);
             //startActivity(intent);
-            finish();
+
+            //returning action complete value
+            return result;
         }
-        //returning action complete value
-        return result;
-    }
 
-    // NOT WORKING, supposed to send email to the added user
-    /* Called when the user taps the Add User button */
-    protected boolean sendEmail(String toEmail, String toName) {
-
-        //initializing action complete value
-        boolean result = false;        
-
-        Log.i("Send email", "");
-
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setDataAndType(Uri.parse("mailto:"), "text/plain");
-
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, toEmail);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "You have been invited to a HomeInventory List");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "You have been invited to a HomeInventory List");
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            Log.i("Finished sending email", "");
-            result = true;
-            finish();
-        } catch (android.content.ActivityNotFoundException ex) {
-            result = false;
-            Toast.makeText(AddUserActivity.this,
-                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        // Added below to display message if missing fields
+        public boolean noSecondaryUserError (String addedEmail, String addedName){
+            boolean result = false;
+            if (addedEmail.length() == 0 || addedName.length() == 0) {
+                result = true;
+            }
+            return result;
         }
-        //Intent intent = new Intent(this, ViewItemsActivity.class);
-        //startActivity(intent);
-        
-        //returning action complete value 
-        return result;
-    }
 
-    // Added below to display message if missing fields
-    public boolean noSecondaryUserError(String addedEmail, String addedName) {
-        boolean result = false;
-        if (addedEmail.length()==0 || addedName.length()==0){
-            result = true;
+        // Added below to display message if invalid email submission
+        public boolean invalidSecondaryUserError (CharSequence enteredEmail){
+            boolean result = false;
+            if (!(!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches())) {
+                result = true;
+            }
+            return result;
         }
-        return result;
-    }
 
-    // Added below to display message if invalid email submission
-    public boolean invalidSecondaryUserError(CharSequence enteredEmail) {
-        boolean result = false;
-        if (!(!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches())){
-            result = true;
-          }
-        return result;
-    }
 }
