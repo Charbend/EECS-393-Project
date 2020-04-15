@@ -66,6 +66,7 @@ public class AddUserActivity extends AppCompatActivity {
         String enteredName = nameInput.getText().toString();
 
         // Checks for empty fields
+
         if (noSecondaryUserError(enteredEmail, enteredName)) {
             Toast.makeText(AddUserActivity.this, "noSecondaryUserError. Please fill all the fields.", Toast.LENGTH_LONG).show();
             result = false;
@@ -73,8 +74,7 @@ public class AddUserActivity extends AppCompatActivity {
             // Checks for valid user by checking for valid email
         else if (invalidSecondaryUserError(enteredEmail)){
             Toast.makeText(AddUserActivity.this, "invalidSecondaryUserError. Please enter a valid email.", Toast.LENGTH_LONG).show();
-            result = false;
-        }
+
         // Returns to previous activity
         else {
             //result = sendEmail(email, name);
@@ -92,7 +92,7 @@ public class AddUserActivity extends AppCompatActivity {
     protected boolean sendEmail(String toEmail, String toName) {
 
         //initializing action complete value
-        boolean result = false;
+        boolean result = false;        
 
         Log.i("Send email", "");
 
@@ -115,8 +115,8 @@ public class AddUserActivity extends AppCompatActivity {
         }
         //Intent intent = new Intent(this, ViewItemsActivity.class);
         //startActivity(intent);
-
-        //returning action complete value
+        
+        //returning action complete value 
         return result;
     }
 
@@ -134,7 +134,7 @@ public class AddUserActivity extends AppCompatActivity {
         boolean result = false;
         if (!(!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches())){
             result = true;
-        }
+          }
         return result;
     }
 }

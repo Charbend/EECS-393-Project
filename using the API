@@ -1,0 +1,25 @@
+These examples given using curl, which I use to test in Windows command prompt. Calls to the API have to use HTTP requests in the same form as shown.
+Replace all PORT with the port the server is on (my code currently opens server on port 4000)
+Replace collection in the HTTP request with the name of the collection you are trying to access (users/retailers/items/rooms)
+Replace key in HTTP request with the key for the collection you are trying to access ({users = email}, {retailers = retailerName}, {items = itemName}, {rooms = listName})
+
+
+(READ Functions)
+curl http://localhost:PORT/collection/key
+  This returns the JSON document associated with the key from the collection
+
+curl http://localhost:PORT/collection/
+  Returns all JSON documents from the specified collection
+
+(UPDATE Function)
+curl -X PUT -d "id=data" http://localhost:PORT/collection/key
+  Updates the JSON document identified by the key in the specified collection. Adds a tag to the document if the tag name ("id") does not exist in the document. If it does, it changes the value associated with it to be "data"
+
+(DELETE Function)
+curl -X DELETE http://localhost:PORT/collection/key
+  Deletes the JSON document identified by the key in the specified collection
+
+(CREATE Function)
+curl -X POST -d "id=data&etc" http://localhost:PORT/collection
+  Creates a new JSON document with specified tags and inserts it into the specified collection.
+  Ex: curl -X POST -d "name=Drew&email=Drew@Drew.com&password=ItsDrew" http://localhost:4000/users would add a new JSON document with those tags
