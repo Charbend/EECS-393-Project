@@ -23,13 +23,13 @@ function initialize(dbName, successCallback, failureCallback) { //To be called i
   //const db = client.connect()
   MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true}, function (err, dbInstance) {
     if (err) {
-      console.log('[MongoDB connection] ERROR: ${err}');
+      //console.log('[MongoDB connection] ERROR: ${err}');
       failureCallback(err); //Should be "caught" by the calling function
     } else {
       const dbObject = dbInstance.db(dbName);
       //const dbCollection = dbObject.collection(dbCollectionName);
 
-      console.log("[MongoDB connection] SUCCESS");
+      //console.log("[MongoDB connection] SUCCESS");
       successCallback(dbObject);
     }
   });
