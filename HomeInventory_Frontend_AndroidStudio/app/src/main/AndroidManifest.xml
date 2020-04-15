@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LogInActivity2" />
         <activity android:name=".DataVisualizationActivity" />
         <activity android:name=".TrackPurchasesActivity" />
         <activity android:name=".AddUserActivity" />
@@ -22,9 +23,6 @@
         <activity android:name=".ViewRooms1Activity" />
         <activity android:name=".HomePageActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity
-            android:name=".ui.login.LogInActivity"
-            android:label="@string/title_activity_log_in" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

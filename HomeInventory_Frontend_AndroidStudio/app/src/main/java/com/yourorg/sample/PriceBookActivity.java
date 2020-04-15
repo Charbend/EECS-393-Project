@@ -59,9 +59,9 @@ public class PriceBookActivity extends AppCompatActivity {
                 String categoryEntry = et5.getText().toString();
 
                 // Checks for empty fields
-                if (itemEntry.length() == 0 || quantityEntry.length() == 0 || priceEntry.length() == 0
-                        || locationEntry.length() == 0 || categoryEntry.length() == 0)
-                    noPriceBookItemError();
+                if (noPriceBookItemError(itemEntry, quantityEntry, priceEntry, locationEntry, categoryEntry))
+                Toast.makeText(PriceBookActivity.this, "noPriceBookItemError. Please fill all the fields ", Toast.LENGTH_LONG).show();
+
                 // Checks for invalid price entry, NEED TO GET WORKING
                 /*else if (Double.parseDouble(et3.getText().toString()) == 0) {
                     (et1.getClass().getSimpleName().equals(int))
@@ -80,8 +80,13 @@ public class PriceBookActivity extends AppCompatActivity {
     }
 
     // Displays message if missing price book field submission
-    public void noPriceBookItemError() {
-        Toast.makeText(PriceBookActivity.this, "noPriceBookItemError. Please fill all the fields ", Toast.LENGTH_LONG).show();
+    public boolean noPriceBookItemError(String itemName, String itemQuantity, String itemPrice, String locationPurch, String category) {
+        boolean result = false;
+        if (itemName.length() == 0 || itemQuantity.length() == 0 || itemPrice.length() == 0
+                || locationPurch.length() == 0 || category.length() == 0) {
+            result = true;
+        }
+        return result;
     }
 
     // Displays message if missing price book field submission
