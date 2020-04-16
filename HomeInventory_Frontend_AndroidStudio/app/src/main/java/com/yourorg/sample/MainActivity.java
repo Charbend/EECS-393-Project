@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                         while ((line = reader.readLine()) != null) {
                             System.out.println(line);
                         }
-
                         reader.close();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -77,14 +76,8 @@ public class MainActivity extends AppCompatActivity {
                         String nodeResponse="";
                         try {
 
-                            //URL localNodeServer = new URL("https://localhost:4000/");
-                            // Address for router and emualtor?
-                            //URL localNodeServer = new URL("https://10.0.2.2:4000/");
-
-                            // Original URL
-                            //URL localNodeServer = new URL("https://localhost:4000/");
                             // Address that connects emulator with your localhost. Enter this into emulator browser.
-                            URL localNodeServer = new URL("https://10.0.2.2:4000/");
+                            URL localNodeServer = new URL("http://10.0.2.2:4000/users");
 
                             BufferedReader in = new BufferedReader(
                                     new InputStreamReader(localNodeServer.openStream()));
@@ -107,12 +100,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    
 
     // Called when the user taps the LOG-IN button, transfers them to LogInActivity2
     public void logIn(View view) {
         Intent intent = new Intent(this, LogInActivity2.class);
         startActivity(intent);
     }
+
+     
 
     // Called when the user taps the SIGN UP button, transfers them to SignUpActivity
     public void signUp(View view) {
