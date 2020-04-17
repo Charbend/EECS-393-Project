@@ -81,6 +81,7 @@ public class ViewRooms1Activity extends AppCompatActivity {
                                             s = s.split(",")[0];
                                             s = s.replace("\"", "");
                                             s = s.replace("}", "");
+                                            s = s.replace("]", "");
 
                                             correct.add(s);
                                         }
@@ -156,9 +157,9 @@ public class ViewRooms1Activity extends AppCompatActivity {
                 final String roomName = et.getText().toString();
                 // Added below to display message if empty submission
                 if (noRoomError(roomName))
-                Toast.makeText(ViewRooms1Activity.this, "noRoomError. Please input a room name.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ViewRooms1Activity.this, "noRoomError. Please input a room name.", Toast.LENGTH_LONG).show();
 
-                // Adds room name to the room view
+                    // Adds room name to the room view
                 else {
                     arrayList.add(roomName);
                     adapter.notifyDataSetChanged();
@@ -188,7 +189,6 @@ public class ViewRooms1Activity extends AppCompatActivity {
                                         }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
-                                        //textView.setText("you suck at comp sci");
                                         //Toast.makeText(ViewRooms1Activity.this, error.toString(), Toast.LENGTH_LONG).show();
                                     }
                                 }){
@@ -199,7 +199,6 @@ public class ViewRooms1Activity extends AppCompatActivity {
                                         String email = getIntent().getStringExtra("loggedInEmail");
                                         params.put("room", roomName);
                                         params.put("creator ", email);
-                                       // params.put("email", email);
 
                                         return params;
                                     }
