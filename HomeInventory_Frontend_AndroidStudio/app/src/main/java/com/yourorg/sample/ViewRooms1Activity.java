@@ -97,7 +97,7 @@ public class ViewRooms1Activity extends AppCompatActivity {
 
                                     }
                                     else {
-                                        Toast.makeText(ViewRooms1Activity.this, "no rooms for this user", Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(ViewRooms1Activity.this, "no rooms for this user", Toast.LENGTH_LONG).show();
                                     }
 
 
@@ -106,13 +106,13 @@ public class ViewRooms1Activity extends AppCompatActivity {
                             }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(ViewRooms1Activity.this, error.toString(), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(ViewRooms1Activity.this, error.toString(), Toast.LENGTH_LONG).show();
                         }
                     });
                     queue.add(stringRequest);
                 } catch (Exception ex) {
 
-                    Toast.makeText(ViewRooms1Activity.this, ex.toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(ViewRooms1Activity.this, ex.toString(), Toast.LENGTH_LONG).show();
 
                 }
 
@@ -182,14 +182,14 @@ public class ViewRooms1Activity extends AppCompatActivity {
                                             public void onResponse(String response) {
 
                                                 //textView.setText("Response is: " + response);
-                                                Toast.makeText(ViewRooms1Activity.this, response, Toast.LENGTH_LONG).show();
+                                                //Toast.makeText(ViewRooms1Activity.this, response, Toast.LENGTH_LONG).show();
 
                                             }
                                         }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
                                         //textView.setText("you suck at comp sci");
-                                        Toast.makeText(ViewRooms1Activity.this, error.toString(), Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(ViewRooms1Activity.this, error.toString(), Toast.LENGTH_LONG).show();
                                     }
                                 }){
                                     @Override
@@ -208,7 +208,7 @@ public class ViewRooms1Activity extends AppCompatActivity {
 
                             } catch (Exception ex) {
                                 //textView.setText(ex.toString());
-                                Toast.makeText(ViewRooms1Activity.this, ex.toString(), Toast.LENGTH_LONG).show();
+                                //Toast.makeText(ViewRooms1Activity.this, ex.toString(), Toast.LENGTH_LONG).show();
                             }
 
 
