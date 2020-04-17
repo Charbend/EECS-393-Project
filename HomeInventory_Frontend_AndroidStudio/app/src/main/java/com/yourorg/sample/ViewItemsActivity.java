@@ -31,9 +31,9 @@ public class ViewItemsActivity extends AppCompatActivity {
     TextView textView;
     EditText et1, et2;
     Button bt1, bt2;
-    ListView lv1, lv2;
-    ArrayList<String> arrayList1, arrayList2;
-    ArrayAdapter<String> adapter1, adapter2;
+    ListView lv1;
+    ArrayList<String> arrayList1;
+    ArrayAdapter<String> adapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,9 +85,10 @@ public class ViewItemsActivity extends AppCompatActivity {
                                     ArrayList<String> correct = new ArrayList<>();
 
 
-
                                     for (int i = 0; i < resp.length; i++) {
+                                        //WAS ORIGINALLY
                                         if (resp[i].contains(userEmail) && resp[i].contains(listName)) {
+                                        //if (resp[i].contains(userEmail) && resp[i].contains(listName) || (resp[i].contains(secondaryUserEmail) && resp[i].contains(listName))) {
 
 
                                             String s = resp[i].split("itemname\":")[1];
@@ -106,9 +107,6 @@ public class ViewItemsActivity extends AppCompatActivity {
                                     }
 
 
-
-
-
                                     if (correct.size() > 0) {
                                         for (String str : correct) {
                                             arrayList1.add(str);
@@ -117,7 +115,7 @@ public class ViewItemsActivity extends AppCompatActivity {
                                         //Toast.makeText(ViewListsActivity.this, correct.toString(), Toast.LENGTH_LONG).show();
 
                                     } else {
-                                        Toast.makeText(ViewItemsActivity.this, "no lists for this user", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ViewItemsActivity.this, "no items for this user", Toast.LENGTH_LONG).show();
                                     }
 
 
@@ -164,9 +162,9 @@ public class ViewItemsActivity extends AppCompatActivity {
                 final String quantity = et2.getText().toString();
                 // Checks if itemName and quantity are empty
                 if (noItemError(itemName, quantity))
-                Toast.makeText(ViewItemsActivity.this, "noItemError. Please input an item name and quantity.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ViewItemsActivity.this, "noItemError. Please input an item name and quantity.", Toast.LENGTH_LONG).show();
 
-                // Adds itemName and quantity to the list view
+                    // Adds itemName and quantity to the list view
                 else {
                     arrayList1.add("Item: " + itemName + ", " + "Quantity: " + quantity);
                     adapter1.notifyDataSetChanged();
@@ -176,8 +174,6 @@ public class ViewItemsActivity extends AppCompatActivity {
                         protected String doInBackground(Void... params) {
 
                             try {
-
-
 
 
                                 // Instantiate the RequestQueue.
@@ -190,7 +186,7 @@ public class ViewItemsActivity extends AppCompatActivity {
                                             public void onResponse(String response) {
 
                                                 //textView.setText("Response is: " + response);
-                                               //Toast.makeText(ViewItemsActivity.this, response, Toast.LENGTH_LONG).show();
+                                                //Toast.makeText(ViewItemsActivity.this, response, Toast.LENGTH_LONG).show();
 
                                             }
                                         }, new Response.ErrorListener() {
@@ -199,10 +195,9 @@ public class ViewItemsActivity extends AppCompatActivity {
                                         //textView.setText("you suck at comp sci");
                                         //Toast.makeText(ViewItemsActivity.this, error.toString(), Toast.LENGTH_LONG).show();
                                     }
-                                }){
+                                }) {
                                     @Override
-                                    protected Map<String, String> getParams()
-                                    {
+                                    protected Map<String, String> getParams() {
                                         Map<String, String> params = new HashMap<String, String>();
                                         String list = getIntent().getStringExtra("ListViewListName");
                                         String email = getIntent().getStringExtra("LoggedInEmail");
@@ -255,10 +250,11 @@ public class ViewItemsActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
     // Displays message if missing item field submission
     public boolean noItemError(String itemName, String itemQuantity) {
         boolean result = false;
-        if (itemName.length() == 0 || itemQuantity.length() == 0){
+        if (itemName.length() == 0 || itemQuantity.length() == 0) {
             result = true;
         }
         return result;
