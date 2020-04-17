@@ -17,7 +17,11 @@ public class HomePageActivity extends AppCompatActivity {
     // Called when the user taps the View Rooms button, transfers them to ViewRooms1Activity
     public void ViewRooms1(View view) {
         Intent intent = new Intent(this, ViewRooms1Activity.class);
+        // Sends the email to viewRooms1Activity
+        String email = getIntent().getStringExtra("loggedInUserEmail");
+        intent.putExtra("loggedInEmail", email);
         startActivity(intent);
+
     }
 
     // Called when the user taps the Price Book button, transfers them to PriceBookActivity
