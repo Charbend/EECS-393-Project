@@ -9,7 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Removed
 
-[0.0.1] 2020 - 14 - 04 : Christine Pan
+[0.0.5] 2020 - 14 - 04 : Sharan Mehta
+### Added
+-Updated PriceBook with Asyn Taks
+
+[0.0.5] 2020 - 14 - 04 : Christine Pan
 ### Added
 -Updated README with a user manual
 
