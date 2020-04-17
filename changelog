@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Removed
 
+[0.0.1] 2020 - 14 - 04 : Christine Pan
+### Added
+-Updated README with a user manual
+
 [0.0.4] 2020 - 11 - 04 : Drew Heald
 ### Added
 -"using the API" doc that describes how to use the API, mostly how I've been using it with curl
