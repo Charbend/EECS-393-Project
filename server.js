@@ -158,6 +158,73 @@ server.delete("/rooms/:listName", (request, response) => {
   });
 }); //end delete
 
+/************************************************************************** Routes for lists collection **************************************************************************/
+
+
+//post adds items to collection
+server.post("/lists", (request, response) => {
+  const itemToAdd = request.body; //get the item to add
+  dbObject.collection('lists').insertOne(itemToAdd, (error, result) =>{ //callback of insertOne
+    if (error) throw error;
+    //return updated list
+    dbObject.collection('lists').find().toArray((_error, _result) => {//callback of find
+      if (_error) throw _error;
+      response.json(_result);
+    }); //end of find callback
+  }); //end of insertOne callback
+}); //End of post function
+
+//get lists document specified by listName in HTTP request
+server.get("/lists/:listName", (request, response) => {
+  const itemToGet = request.params.listName; //Get item to get from request
+
+  dbObject.collection('lists').findOne({ listName: itemToGet }, (error, result) => { //findOne callback
+    if (error) throw error;
+    //return item
+    response.json(result);
+  }); //end of findOne callback
+}); //end of get function
+
+//get all documents in lists collection
+server.get("/lists", (request, response) => {
+  // return updated list
+  dbObject.collection('lists').find().toArray((error, result) => {
+      if (error) throw error;
+      response.json(result);
+  });
+});
+
+//update lists document, specified by listName in HTTP request
+server.put("/lists/:listName", (request, response) => {
+  const itemKey = request.params.listName;
+  const item = request.body;
+
+  console.log("Editing item: ", itemKey, " to be ", item);
+
+  dbObject.collection('lists').updateOne({ listName: itemKey }, { $set: item }, (error, result) => {
+    if (error) throw error;
+    //send back entire update list, to make sure frontend data is up-to-data
+    dbObject.collection('lists').find().toArray(function (_error, _result) {
+      if (_error) throw _error;
+      response.json(_result);
+    });
+  });
+}); //end put
+
+//Delete lists document, specified by listName in HTTP request
+server.delete("/lists/:listName", (request, response) => {
+  const itemKey = request.params.listName;
+  console.log("Delete lists with listName: ", itemKey);
+
+  dbObject.collection('lists').deleteOne({ listName: itemKey }, function (error, result) {
+    if (error) throw error;
+    //send back entire updated list after successful request
+    dbObject.collection('lists').find().toArray(function (_error, _result) {
+      if (_error) throw _error;
+      response.json(_result);
+    });
+  });
+}); //end delete
 
 /************************************************************************** Routes for items collection **************************************************************************/
 
@@ -225,6 +292,7 @@ server.delete("/items/:itemName", (request, response) => {
     });
   });
 }); //end delete
+
 
 
 /************************************************************************** Routes for retailers collection **************************************************************************/
