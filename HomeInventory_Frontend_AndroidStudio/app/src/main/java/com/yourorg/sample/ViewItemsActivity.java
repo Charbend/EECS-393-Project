@@ -86,10 +86,8 @@ public class ViewItemsActivity extends AppCompatActivity {
 
 
                                     for (int i = 0; i < resp.length; i++) {
-                                        //WAS ORIGINALLY
-                                        if (resp[i].contains(userEmail) && resp[i].contains(listName)) {
-                                        //if (resp[i].contains(userEmail) && resp[i].contains(listName) || (resp[i].contains(secondaryUserEmail) && resp[i].contains(listName))) {
 
+                                        if (resp[i].contains(userEmail) && resp[i].contains(listName)) {
 
                                             String s = resp[i].split("itemname\":")[1];
                                             s = s.split(",")[0];
