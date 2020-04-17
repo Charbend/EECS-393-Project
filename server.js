@@ -107,10 +107,10 @@ server.post("/rooms", (request, response) => {
 }); //End of post function
 
 //get rooms document specified by listName in HTTP request
-server.get("/rooms/:listName", (request, response) => {
-  const itemToGet = request.params.listName; //Get item to get from request
+server.get("/rooms/:room", (request, response) => {
+  const itemToGet = request.params.room; //Get item to get from request
 
-  dbObject.collection('rooms').findOne({ listName: itemToGet }, (error, result) => { //findOne callback
+  dbObject.collection('rooms').findOne({ room: itemToGet }, (error, result) => { //findOne callback
     if (error) throw error;
     //return item
     response.json(result);
@@ -127,13 +127,13 @@ server.get("/rooms", (request, response) => {
 });
 
 //update rooms document, specified by listName in HTTP request
-server.put("/rooms/:listName", (request, response) => {
-  const itemKey = request.params.listName;
+server.put("/rooms/:room", (request, response) => {
+  const itemKey = request.params.room;
   const item = request.body;
 
   console.log("Editing item: ", itemKey, " to be ", item);
 
-  dbObject.collection('rooms').updateOne({ listName: itemKey }, { $set: item }, (error, result) => {
+  dbObject.collection('rooms').updateOne({ room: itemKey }, { $set: item }, (error, result) => {
     if (error) throw error;
     //send back entire update list, to make sure frontend data is up-to-data
     dbObject.collection('rooms').find().toArray(function (_error, _result) {
@@ -144,11 +144,11 @@ server.put("/rooms/:listName", (request, response) => {
 }); //end put
 
 //Delete rooms document, specified by listName in HTTP request
-server.delete("/rooms/:listName", (request, response) => {
+server.delete("/rooms/:room", (request, response) => {
   const itemKey = request.params.listName;
-  console.log("Delete rooms with listName: ", itemKey);
+  console.log("Delete rooms with room: ", itemKey);
 
-  dbObject.collection('rooms').deleteOne({ listName: itemKey }, function (error, result) {
+  dbObject.collection('rooms').deleteOne({ room: itemKey }, function (error, result) {
     if (error) throw error;
     //send back entire updated list after successful request
     dbObject.collection('rooms').find().toArray(function (_error, _result) {
@@ -174,11 +174,11 @@ server.post("/lists", (request, response) => {
   }); //end of insertOne callback
 }); //End of post function
 
-//get lists document specified by listName in HTTP request
-server.get("/lists/:listName", (request, response) => {
-  const itemToGet = request.params.listName; //Get item to get from request
+//get lists document specified by list in HTTP request
+server.get("/lists/:list", (request, response) => {
+  const itemToGet = request.params.list; //Get item to get from request
 
-  dbObject.collection('lists').findOne({ listName: itemToGet }, (error, result) => { //findOne callback
+  dbObject.collection('lists').findOne({ list: itemToGet }, (error, result) => { //findOne callback
     if (error) throw error;
     //return item
     response.json(result);
@@ -194,14 +194,14 @@ server.get("/lists", (request, response) => {
   });
 });
 
-//update lists document, specified by listName in HTTP request
-server.put("/lists/:listName", (request, response) => {
-  const itemKey = request.params.listName;
+//update lists document, specified by list in HTTP request
+server.put("/lists/:list", (request, response) => {
+  const itemKey = request.params.list;
   const item = request.body;
 
   console.log("Editing item: ", itemKey, " to be ", item);
 
-  dbObject.collection('lists').updateOne({ listName: itemKey }, { $set: item }, (error, result) => {
+  dbObject.collection('lists').updateOne({ list: itemKey }, { $set: item }, (error, result) => {
     if (error) throw error;
     //send back entire update list, to make sure frontend data is up-to-data
     dbObject.collection('lists').find().toArray(function (_error, _result) {
@@ -211,12 +211,12 @@ server.put("/lists/:listName", (request, response) => {
   });
 }); //end put
 
-//Delete lists document, specified by listName in HTTP request
-server.delete("/lists/:listName", (request, response) => {
-  const itemKey = request.params.listName;
-  console.log("Delete lists with listName: ", itemKey);
+//Delete lists document, specified by list in HTTP request
+server.delete("/lists/:list", (request, response) => {
+  const itemKey = request.params.list;
+  console.log("Delete lists with list: ", itemKey);
 
-  dbObject.collection('lists').deleteOne({ listName: itemKey }, function (error, result) {
+  dbObject.collection('lists').deleteOne({ list: itemKey }, function (error, result) {
     if (error) throw error;
     //send back entire updated list after successful request
     dbObject.collection('lists').find().toArray(function (_error, _result) {
@@ -287,6 +287,73 @@ server.delete("/items/:itemName", (request, response) => {
     if (error) throw error;
     //send back entire updated list after successful request
     dbObject.collection('items').find().toArray(function (_error, _result) {
+      if (_error) throw _error;
+      response.json(_result);
+    });
+  });
+}); //end delete
+
+/************************************************************************** Routes for pricebookitems collection **************************************************************************/
+
+//post adds pricebookitems to collection
+server.post("/pricebookitems", (request, response) => {
+  const itemToAdd = request.body; //get the item to add
+  dbObject.collection('pricebookitems').insertOne(itemToAdd, (error, result) =>{ //callback of insertOne
+    if (error) throw error;
+    //return updated list
+    dbObject.collection('pricebookitems').find().toArray((_error, _result) => {//callback of find
+      if (_error) throw _error;
+      response.json(_result);
+    }); //end of find callback
+  }); //end of insertOne callback
+}); //End of post function
+
+//get pricebookitems document specified by itemName in HTTP request
+server.get("/pricebookitems/:itemName", (request, response) => {
+  const itemToGet = request.params.itemName; //Get item to get from request
+
+  dbObject.collection('pricebookitems').findOne({ itemName: itemToGet }, (error, result) => { //findOne callback
+    if (error) throw error;
+    //return item
+    response.json(result);
+  }); //end of findOne callback
+}); //end of get function
+
+//get all documents in items collection
+server.get("/pricebookitems", (request, response) => {
+  // return updated list
+  dbObject.collection('pricebookitems').find().toArray((error, result) => {
+      if (error) throw error;
+      response.json(result);
+  });
+});
+
+//update items document, specified by itemName in HTTP request
+server.put("/pricebookitems/:itemName", (request, response) => {
+  const itemKey = request.params.itemName;
+  const item = request.body;
+
+  console.log("Editing pricebookitems: ", itemKey, " to be ", item);
+
+  dbObject.collection('pricebookitems').updateOne({ itemName: itemKey }, { $set: item }, (error, result) => {
+    if (error) throw error;
+    //send back entire update list, to make sure frontend data is up-to-data
+    dbObject.collection('pricebookitems').find().toArray(function (_error, _result) {
+      if (_error) throw _error;
+      response.json(_result);
+    });
+  });
+}); //end put
+
+//Delete items document, specified by itemName in HTTP request
+server.delete("/pricebookitems/:itemName", (request, response) => {
+  const itemKey = request.params.itemName;
+  console.log("Delete pricebookitems with itemName: ", itemKey);
+
+  dbObject.collection('pricebookitems').deleteOne({ itemName: itemKey }, function (error, result) {
+    if (error) throw error;
+    //send back entire updated list after successful request
+    dbObject.collection('pricebookitems').find().toArray(function (_error, _result) {
       if (_error) throw _error;
       response.json(_result);
     });
