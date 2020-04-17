@@ -27,18 +27,24 @@ public class HomePageActivity extends AppCompatActivity {
     // Called when the user taps the Price Book button, transfers them to PriceBookActivity
     public void PriceBook(View view) {
         Intent intent = new Intent(this, PriceBookActivity.class);
+        String email = getIntent().getStringExtra("loggedInUserEmail");
+        intent.putExtra("loggedInEmail", email);
         startActivity(intent);
     }
 
     // Called when the user taps the Track Purchases button, transfers them to TrackPurchasesActivity
     public void TrackPurchases(View view) {
         Intent intent = new Intent(this, TrackPurchasesActivity.class);
+        String email = getIntent().getStringExtra("loggedInUserEmail");
+        intent.putExtra("loggedInEmail", email);
         startActivity(intent);
     }
 
     // Called when the user taps the Price Book button, transfers them to ShopActivity
     public void Shop(View view) {
         Intent intent = new Intent(this, ShopActivity.class);
+        String email = getIntent().getStringExtra("loggedInUserEmail");
+        intent.putExtra("loggedInEmail", email);
         startActivity(intent);
     }
 }
