@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Native Gradle Sample</string>
+    <string name="app_name">HomeInventory</string>
     <string name="log_in">LOG-IN</string>
     <string name="sign_up">SIGN UP</string>
     <string name="home">HOME</string>
