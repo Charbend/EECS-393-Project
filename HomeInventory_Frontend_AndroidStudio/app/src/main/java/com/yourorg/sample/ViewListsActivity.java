@@ -110,13 +110,13 @@ public class ViewListsActivity extends AppCompatActivity {
                             }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(ViewListsActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(ViewListsActivity.this, error.toString(), Toast.LENGTH_LONG).show();
                         }
                     });
                     queue.add(stringRequest);
                 } catch (Exception ex) {
 
-                    Toast.makeText(ViewListsActivity.this, ex.toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(ViewListsActivity.this, ex.toString(), Toast.LENGTH_LONG).show();
 
                 }
 
@@ -142,6 +142,7 @@ public class ViewListsActivity extends AppCompatActivity {
                 Intent intent = new Intent(ViewListsActivity.this, ViewItemsActivity.class);
                 String userEmail = getIntent().getStringExtra("ListViewUserEmail");
                 intent.putExtra("ListViewListName", Templistview);
+                intent.putExtra("LoggedInEmail", userEmail);
                 startActivity(intent);
             }
         });
@@ -181,14 +182,14 @@ public class ViewListsActivity extends AppCompatActivity {
                                             public void onResponse(String response) {
 
                                                 //textView.setText("Response is: " + response);
-                                                Toast.makeText(ViewListsActivity.this, response, Toast.LENGTH_LONG).show();
+                                                //Toast.makeText(ViewListsActivity.this, response, Toast.LENGTH_LONG).show();
 
                                             }
                                         }, new Response.ErrorListener() {
                                     @Override
                                     public void onErrorResponse(VolleyError error) {
                                         //textView.setText("you suck at comp sci");
-                                        Toast.makeText(ViewListsActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                                        //Toast.makeText(ViewListsActivity.this, error.toString(), Toast.LENGTH_LONG).show();
                                     }
                                 }) {
                                     @Override
@@ -205,7 +206,7 @@ public class ViewListsActivity extends AppCompatActivity {
 
                             } catch (Exception ex) {
                                 //textView.setText(ex.toString());
-                                Toast.makeText(ViewListsActivity.this, ex.toString(), Toast.LENGTH_LONG).show();
+                                //Toast.makeText(ViewListsActivity.this, ex.toString(), Toast.LENGTH_LONG).show();
                             }
 
 
@@ -232,10 +233,15 @@ public class ViewListsActivity extends AppCompatActivity {
     // Called when the user taps the ADD USER button
     public void addUser(View view) {
         Intent intent = new Intent(this, AddUserActivity.class);
+
+        //gets user email
+        String email = getIntent().getStringExtra("ListViewUserEmail");
         // Gets the list name the user is viewing
-        String list = getIntent().getStringExtra("ListViewListName");
+        String list = getIntent().getStringExtra("ListViewRoomName");
         // Sends the list name to the AddUserActivity
         intent.putExtra("ListViewListName", list);
+        //sends user email to adduseracctivity
+        intent.putExtra("ListViewUserEmail", email);
         startActivity(intent);
     }
 
