@@ -112,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
                             return params;
                         }
                     };
-                    queue.add(postRequest);;
+                    queue.add(postRequest);
 
                     } catch (Exception ex) {
                         textView.setText(ex.toString());
@@ -132,7 +132,10 @@ public class SignUpActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // Sends the email to the HomePageActivity
+            intent.putExtra("loggedInUserEmail", email);
             startActivity(intent);
+
         }
 
 
