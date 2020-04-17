@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 
 ### Removed
+[0.0.5] 2020 - 17 - 04: Alex Mazon
+### Added
+- connected mainactivity.java, loginactivity2.java, signupactivity.java, homepageactivity.java, 
+viewrooms1activity.java, viewlistsactivity.java, viewitemsactivity.java, addusersactivity.java to backend.
 
 [0.0.5] 2020 - 14 - 04 : Sharan Mehta
 ### Added
@@ -83,3 +87,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -changelog file to track changes
 -README to serve as introduction to program for external and internal users
 -Initial testing code with Node.js
+
