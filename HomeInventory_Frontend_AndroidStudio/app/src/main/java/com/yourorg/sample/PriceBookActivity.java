@@ -60,6 +60,7 @@ public class PriceBookActivity extends AppCompatActivity {
         adapter1 = new ArrayAdapter<String>(PriceBookActivity.this, android.R.layout.simple_list_item_1,
                 arrayList1);
         lv1.setAdapter(adapter1);
+
         new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... params) {
@@ -76,10 +77,10 @@ public class PriceBookActivity extends AppCompatActivity {
                                 @Override
                                 public void onResponse(String response) {
                                     String userEmail = getIntent().getStringExtra("loggedInEmail");
-                                    if (response.contains(itemEntered) && response.contains(qtyEntered) && response.contains(priceEntered) && response.contains(locationEntered) && response.contains(categoryEntered)) {
+                                    /*if (response.contains(itemEntered) && response.contains(qtyEntered) && response.contains(priceEntered) && response.contains(locationEntered) && response.contains(categoryEntered)) {
                                         //result = false;
                                         Toast.makeText(PriceBookActivity.this, "item already exists", Toast.LENGTH_LONG).show();
-                                    }
+                                    }*/
 
                                     // Splits response by commas
                                     String[] resp = response.split("\\{");
@@ -100,13 +101,32 @@ public class PriceBookActivity extends AppCompatActivity {
                                             s = s.split(",")[0];
                                             s = s.replace("\"", "");
                                             s = s.replace("}", "");
-                                            String s2 = resp[i].split("quantity \":")[1];
+                                            String s2 = resp[i].split("quantity\":")[1];
                                             s2 = s2.split(",")[0];
                                             s2 = s2.replace("\"", "");
                                             s2 = s2.replace("}", "");
                                             String s3 = "Item: " + s + ", " + "Quantity: " + s2;
 
-                                            correct.add(s3);
+                                            String s4 = resp[i].split("price\":")[1];
+                                            s4 = s4.split(",")[0];
+                                            s4 = s4.replace("\"", "");
+                                            s4 = s4.replace("}", "");
+                                            String s5 = resp[i].split("location\":")[1];
+                                            s5 = s5.split(",")[0];
+                                            s5 = s5.replace("\"", "");
+                                            s5 = s5.replace("}", "");
+                                            String s6 = "Price: " + s4 + ", " + "Location: " + s5;
+
+                                            String s7 = resp[i].split("category\":")[1];
+                                            s7 = s7.split(",")[0];
+                                            s7 = s7.replace("\"", "");
+                                            s7 = s7.replace("}", "");
+                                            String s8 = "Category: " + s7;
+
+                                            String s9 = s3 + ", " + s6 + ", " + s8;
+                                            s9 = s9.replace("]", "");
+
+                                            correct.add(s9);
 
                                         }
                                     }
@@ -131,7 +151,7 @@ public class PriceBookActivity extends AppCompatActivity {
                                 });
                     queue.add(stringRequest);
                             } catch(Exception ex){
-                        Toast.makeText(PriceBookActivity.this, ex.toString(), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(PriceBookActivity.this, ex.toString(), Toast.LENGTH_LONG).show();
                     }
 
                     return null;
@@ -141,6 +161,11 @@ public class PriceBookActivity extends AppCompatActivity {
                 protected void onPostExecute (String result){
                 }
             }.execute();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
 
