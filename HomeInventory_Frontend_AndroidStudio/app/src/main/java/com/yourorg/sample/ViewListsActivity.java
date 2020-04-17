@@ -88,6 +88,7 @@ public class ViewListsActivity extends AppCompatActivity {
                                             s = s.split(",")[0];
                                             s = s.replace("\"", "");
                                             s = s.replace("}", "");
+                                            s = s.replace("]", "");
 
                                             correct.add(s);
                                         }
@@ -141,7 +142,9 @@ public class ViewListsActivity extends AppCompatActivity {
                 String Templistview = arrayList.get(i);
                 Intent intent = new Intent(ViewListsActivity.this, ViewItemsActivity.class);
                 String userEmail = getIntent().getStringExtra("ListViewUserEmail");
+                String roomName = getIntent().getStringExtra("ListViewRoomName");
                 intent.putExtra("ListViewListName", Templistview);
+                intent.putExtra("ListViewRoomName", roomName);
                 intent.putExtra("LoggedInEmail", userEmail);
                 startActivity(intent);
             }
@@ -196,8 +199,11 @@ public class ViewListsActivity extends AppCompatActivity {
                                     protected Map<String, String> getParams() {
                                         Map<String, String> params = new HashMap<String, String>();
                                         String email = getIntent().getStringExtra("ListViewUserEmail");
+                                        // Gets the list name the user is viewing
+                                        String roomName = getIntent().getStringExtra("ListViewRoomName");
                                         params.put("list", listEntry);
                                         params.put("creator ", email);
+                                        params.put("room ", roomName);
 
                                         return params;
                                     }
@@ -239,7 +245,7 @@ public class ViewListsActivity extends AppCompatActivity {
         // Gets the list name the user is viewing
         String list = getIntent().getStringExtra("ListViewRoomName");
         // Sends the list name to the AddUserActivity
-        intent.putExtra("ListViewListName", list);
+        intent.putExtra("ListViewRoomName", list);
         //sends user email to adduseracctivity
         intent.putExtra("ListViewUserEmail", email);
         startActivity(intent);
