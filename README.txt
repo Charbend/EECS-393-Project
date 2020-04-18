@@ -1,0 +1,87 @@
+EECS 393 Project Home Inventory
+Drew Heald, Sharan Mehta, Lennox Wildman, McKenzie Hawkins, Christine Pan, Alexander Mazon
+
+Initial setup:
+git clone <repository link>
+
+When doing any other work:
+Git pull to get up to date
+Fork a new branch so you don't work on the master branch
+When satisfied that your code works, commit it
+We can then merge any code back into the master branch
+
+HomeInventory User Manual
+1. How to Run/SDK Platform
+  1.1 Have only Android 10.0 (Q) checked for SDK Platforms.
+  1.2 Following is a list of SDK tools that were used-- make sure all tools are up to date:
+    1.2.1 Android SDK Build-Tools 30-rc2
+    1.2.2 NDK (Side by side)
+    1.2.3 CMake
+    1.2.4 Android Emulator (Version 30.0.5)
+    1.2.5 Android SDK Platform-Tools (Version 29.0.6)
+    1.2.6 Intel x86 Emulator Accelerator (HAXM installer) (Version 7.5.6)
+  1.3 Download Project "EECS-393-Project"
+    1.3.1 Import the "HomeInventory_Frontend_AndroidStudio" folder into Android Studio
+    1.3.2 Update local.properties under gradle folder to display your ndk path
+      1.3.1.1 Should be similar to "ndk.dir=C\:\\Users\\<USER>\\AppData\\Local\\Android\\Sdk\\ndk\\21.0.6113669"
+  1.4 Use Pixel API 29 as the emulator.
+  1.5 Download Node.js
+  1.6 Start the node
+    1.6.1 Open terminal
+    1.6.2 Navigate to path of repo where file server.js is located
+    1.6.3 Type "node server.js"
+    1.6.4 Terminal message should be displayed indicating successful connection
+  1.7 Run app in Android Studio
+    
+2. Getting Started - Main Screen
+  2.1 Node Versions
+    2.1.1 Will display a message upon being clicked that indicates connection to node server
+  2.2 Log-In
+    2.2.1 Click on the LOG-IN button
+    2.2.2 This will bring you to the Log-In Screen
+    2.2.3 Enter your email
+    2.2.4 Enter your password
+    2.2.5 Click on the LOG-IN button to log-in
+  2.3 Sign Up
+    2.3.1 Click on the SIGN UP button
+    2.3.2 Enter your Name
+    2.3.3 Enter your Email
+    2.3.4 Enter your Password
+    2.3.5 Confirm your Password by typing it in again
+    2.3.6 Click on the SIGN UP button to sign up and create your account
+
+3. Home Screen
+  3.1 View Rooms - This is where you will see the list of rooms you have created
+    3.1.1 Add Rooms
+      3.1.1.1 Enter the Room Name at the bottom of the screen (i.e Kitchen, Bedroom, etc.)
+      3.1.1.2 Click on the ADD ROOM button to add the room to your list of rooms
+    3.1.2 View/Add Lists
+      3.1.2.1 Click on the room you want to view/add lists to
+      3.1.2.2 Enter the List Name at the bottom of the screen (i.e Fridge, Closet, etc.)
+      3.1.2.3 Click on the ADD LIST button to add the list to the room
+    3.1.3 View/Add Items
+      3.1.3.1 Click on the list you want to view/add items to
+      3.1.3.2 Enter Item Name at the bottom of the screen (i.e Milk, Shirt, etc.)
+      3.1.3.3 Enter the Quantity to indicate how many of the items are being added
+      3.1.3.4 Click on the ADD ITEM button to add the item/items to your list
+    3.1.4 Add Users
+      3.1.4.1 Click on the ADD USER button on at the top of the screen
+      3.1.4.2 Enter the email of the user you want to share the Room/List with
+      3.1.4.3 Enter the name of the user you want to share the Room/List with
+      3.1.4.4 Click on the ADD USER button to share the Room/List
+
+4. Price Book - This is where you can see your items, the quantity of the item, the price, location purchased, and category
+  4.1 Add to Price Book
+    4.1.1 Enter Item Name at the bottom of the screen
+    4.1.2 Enter Quantity of the item
+    4.1.3 Enter Price of the item
+    4.1.4 Enter Location of the item
+    4.1.5 Enter Category of the item
+    4.1.6 Click on the ADD ITEM button to add the item to the Price Book    
+
+5. Track Online Purchases - This is where you can track any purchases you've made online
+  5.1 Data Visualization - You can check the data of your online purchases
+    5.1.1 Click on the PERFORM DATA VISUALIZATION button
+    5.1.2 Select a timeframe to view by clicking the drop down menu (i.e This Week, This Month, etc.)
+
+6. Shop - Shop from different retailers

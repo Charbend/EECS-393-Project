@@ -2,16 +2,35 @@ package com.yourorg.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class DataVisualizationActivity extends AppCompatActivity {
+
+    TextView tv1, tv2, tv3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_visualization);
+
+        //tv1 = findViewById(R.id.textView30);
+        //tv2 = findViewById(R.id.textView31);
+        //tv3 = findViewById(R.id.textView34);
 
         // Below is to add drop down menu
         Spinner dropdown = findViewById(R.id.spinner1);
@@ -20,6 +39,7 @@ public class DataVisualizationActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         // Sets dropdown menu values
         dropdown.setAdapter(adapter);
+
     }
 
 }

@@ -78,10 +78,6 @@ public class SignUpActivity extends AppCompatActivity {
                 protected String doInBackground(Void... params) {
 
                     try {
-
-
-
-
                         // Instantiate the RequestQueue.
                         RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
                         String url = "http://10.0.2.2:4000/users";
@@ -101,18 +97,18 @@ public class SignUpActivity extends AppCompatActivity {
                                 textView.setText("you suck at comp sci");
                             }
                         }){
-                        @Override
-                        protected Map<String, String> getParams()
-                        {
-                            Map<String, String> params = new HashMap<String, String>();
-                            params.put("password", password);
-                            params.put("user", name);
-                            params.put("email", email);
+                            @Override
+                            protected Map<String, String> getParams()
+                            {
+                                Map<String, String> params = new HashMap<String, String>();
+                                params.put("password", password);
+                                params.put("user", name);
+                                params.put("email", email);
 
-                            return params;
-                        }
-                    };
-                    queue.add(postRequest);
+                                return params;
+                            }
+                        };
+                        queue.add(postRequest);
 
                     } catch (Exception ex) {
                         textView.setText(ex.toString());
@@ -132,10 +128,10 @@ public class SignUpActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            // Sends the email to the HomePageActivity
+
+            // Sends the room name to the HomePageActivity
             intent.putExtra("loggedInUserEmail", email);
             startActivity(intent);
-
         }
 
 
@@ -155,5 +151,4 @@ public class SignUpActivity extends AppCompatActivity {
     public boolean invalidSignUpError(CharSequence enteredEmail) {
         return (!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches());
     }
-
 }

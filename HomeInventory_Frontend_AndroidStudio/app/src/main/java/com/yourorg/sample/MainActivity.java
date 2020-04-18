@@ -92,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                     @Override
                     protected void onPostExecute(String result) {
-                        textViewVersions.setText(result);
+                        if(result.contains("test@test.com"))
+                            textViewVersions.setText("Connected to server");
+                        else
+                            textViewVersions.setText("Not connected to server");
                     }
                 }.execute();
 
