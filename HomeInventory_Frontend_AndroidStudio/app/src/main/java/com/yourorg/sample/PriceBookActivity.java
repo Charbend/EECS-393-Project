@@ -218,7 +218,7 @@ public class PriceBookActivity extends AppCompatActivity {
                                             public void onResponse(String response) {
                                                 String userEmail = getIntent().getStringExtra("loggedInEmail");
                                                 //textView.setText("Response is: " + response);
-                                                Toast.makeText(PriceBookActivity.this, response, Toast.LENGTH_LONG).show();
+                                                //Toast.makeText(PriceBookActivity.this, response, Toast.LENGTH_LONG).show();
                                             }
                                         }, new Response.ErrorListener() {
                                     @Override
