@@ -2,6 +2,7 @@ package com.yourorg.sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -35,12 +36,16 @@ public class AddUserActivity extends AppCompatActivity {
     String collectionURL1, collectionURL2;
 
     @Override
+    // On screen creation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Loads add user layout
         setContentView(R.layout.activity_add_user);
 
+        // Sets text view to text view in layout
         textView = findViewById(R.id.textView27);
         // Gets message sent by previous activity
+        // Not sure if next two lines are needed
         Bundle bundle = getIntent().getExtras();
         assert bundle != null;
         // Sets the title variables to the room the user is to be added to
@@ -49,14 +54,23 @@ public class AddUserActivity extends AppCompatActivity {
         String listTitle = getIntent().getStringExtra("ListViewListName");
 
 
-        // Sets title based on
+        // Sets title based on whether the user came from a room or a list
+        // If a user came from a room, then roomTitle will not be null
         if (roomTitle != null) {
+            // Sets current title to the room the user came from
             textView.setText("Room: " + roomTitle);
+            // Used later to connect to rooms portion of database
             collectionURL1 = "rooms";
+            // Used later to connect to specific room in rooms portion of database
             collectionURL2 = roomTitle;
-        } else {
+        }
+        // Else roomTitle will be null, so they came from a lsit
+        else {
+            // Sets current title to the list the user came from
             textView.setText("List: " + listTitle);
+            // Used later to connect to lists portion of database
             collectionURL1 = "lists";
+            // Used later to connect to specific list in lists portion of database
             collectionURL2 = listTitle;
         }
 
@@ -64,90 +78,65 @@ public class AddUserActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.editText9);
         nameInput = findViewById(R.id.editText10);
         addUser = findViewById(R.id.button13);
-        /*addUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                email = emailInput.getText().toString();
-                name = nameInput.getText().toString();
-                sendEmail(email, name);
-            }
-        });*/
     }
 
     // Called when the user taps the Add User button
+    @SuppressLint("StaticFieldLeak")
     public boolean setAddUser(View view) {
 
         //initializing action complete value
         boolean result = false;
 
-        // Gets text from edit text fields
+        // Gets email, and name from edit text fields
         final String enteredEmail = emailInput.getText().toString();
         String enteredName = nameInput.getText().toString();
 
-        // Checks for empty fields
-
+        // If there are empty fields, display a toast indicating that
         if (noSecondaryUserError(enteredEmail, enteredName)) {
             Toast.makeText(AddUserActivity.this, "noSecondaryUserError. Please fill all the fields.", Toast.LENGTH_LONG).show();
             result = false;
         }
-        // Checks for valid user by checking for valid email
+        // Else if there is an email in invalid format, display a toast indicating that
         else if (invalidSecondaryUserError(enteredEmail))
             Toast.makeText(AddUserActivity.this, "invalidSecondaryUserError. Please enter a valid email.", Toast.LENGTH_LONG).show();
-
-            // Returns to previous activity
+            // Else, add the entered email to the room/list the user came from to the database
         else {
-
             new AsyncTask<Void, Void, String>() {
 
                 @Override
                 protected String doInBackground(Void... params) {
-
                     try {
-
-
                         // Instantiate the RequestQueue.
                         RequestQueue queue = Volley.newRequestQueue(AddUserActivity.this);
+                        // Sets url to appropriate room or list the user came from to add user to through server.js running locally
                         String url = "http://10.0.2.2:4000/" + collectionURL1 + "/" + collectionURL2;
+                        // PUT request to update the room or list with the added user email
                         StringRequest postRequest = new StringRequest(Request.Method.PUT, url,
                                 new Response.Listener<String>() {
-
                                     @Override
                                     public void onResponse(String response) {
-
-                                        //textView.setText("Response is: " + response);
                                         //Toast.makeText(AddUserActivity.this, response, Toast.LENGTH_LONG).show();
-
                                     }
                                 }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                //textView.setText("you suck at comp sci");
                                 //Toast.makeText(AddUserActivity.this, error.toString(), Toast.LENGTH_LONG).show();
                             }
                         }) {
                             @Override
+                            // Sends parameters to database
                             protected Map<String, String> getParams() {
                                 Map<String, String> params = new HashMap<String, String>();
-                                String list = getIntent().getStringExtra("ListViewListName");
-                                String email = getIntent().getStringExtra("LoggedInEmail");
+                                // Adds the entered email as a secondaryUser in the database
                                 params.put("secondaryUser", enteredEmail);
-                                //params.put("quantity ", quantity);
-                                //params.put("creator", email);
-                                //params.put("list", list);
-
-                                // params.put("email", email);
-
                                 return params;
                             }
                         };
                         queue.add(postRequest);
 
                     } catch (Exception ex) {
-                        //textView.setText(ex.toString());
                         //Toast.makeText(AddUserActivity.this, ex.toString(), Toast.LENGTH_LONG).show();
                     }
-
-
                     //return textView.getText().toString();
                     return null;
                 }
@@ -162,8 +151,8 @@ public class AddUserActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             result = true;
+            // Returns to previous activity
             finish();
         }
         //returning action complete value
@@ -203,18 +192,20 @@ public class AddUserActivity extends AppCompatActivity {
         return result;
     }
 
-    // Added below to display message if missing fields
+    // Displays message if missing fields
     public boolean noSecondaryUserError(String addedEmail, String addedName) {
         boolean result = false;
+        // If no entry for email and name, return true that there is a noSecondaryUserError
         if (addedEmail.length() == 0 || addedName.length() == 0) {
             result = true;
         }
         return result;
     }
 
-    // Added below to display message if invalid email submission
+    // Displays message if invalid email submission
     public boolean invalidSecondaryUserError(CharSequence enteredEmail) {
         boolean result = false;
+        // If invalid email format, return true that there is an invalidSecondaryUserError
         if (!(!TextUtils.isEmpty(enteredEmail) && Patterns.EMAIL_ADDRESS.matcher(enteredEmail).matches())) {
             result = true;
         }

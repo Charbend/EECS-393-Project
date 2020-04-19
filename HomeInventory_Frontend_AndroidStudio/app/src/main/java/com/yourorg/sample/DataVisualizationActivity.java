@@ -21,13 +21,17 @@ import java.util.concurrent.TimeUnit;
 
 public class DataVisualizationActivity extends AppCompatActivity {
 
+    // Declares local textview objects
     TextView tv1, tv2, tv3;
 
     @Override
+    // On screen creation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Loads data visualization layout
         setContentView(R.layout.activity_data_visualization);
 
+        // Was going to use display price book statistics in
         //tv1 = findViewById(R.id.textView30);
         //tv2 = findViewById(R.id.textView31);
         //tv3 = findViewById(R.id.textView34);
@@ -36,6 +40,7 @@ public class DataVisualizationActivity extends AppCompatActivity {
         Spinner dropdown = findViewById(R.id.spinner1);
         // Creates a list of items for the dropdown menu.
         String[] items = new String[]{"This Week", "This Month", "This Year"};
+        // Creates adapter for adding values
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         // Sets dropdown menu values
         dropdown.setAdapter(adapter);

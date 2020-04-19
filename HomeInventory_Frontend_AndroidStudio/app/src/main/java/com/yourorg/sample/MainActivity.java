@@ -1,11 +1,14 @@
 package com.yourorg.sample;
 
 import android.os.AsyncTask;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.net.*;
 import java.io.*;
 import java.util.Map;
@@ -24,19 +27,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //We just want one instance of node running in the background.
-    public static boolean _startedNodeAlready=false;
+    public static boolean _startedNodeAlready = false;
 
     @Override
+   // On screen creation
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Loads main layout
         setContentView(R.layout.activity_main);
 
-        if( !_startedNodeAlready ) {
-            _startedNodeAlready=true;
+        if (!_startedNodeAlready) {
+            _startedNodeAlready = true;
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    // Part of my attempt to start node
+                    // Attempt to start node from within the app, doesn't work
                     /*try {
                         ProcessBuilder processBuilder = new ProcessBuilder("node server.js");
                         processBuilder = processBuilder.directory(new File("PATH TO server.js"));
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }*/
 
+                    // Original code for starting a node server, but doesn't work
                     /*startNodeWithArguments(new String[]{"node", "-e",
                             "var http = require('https'); " +
                                     "var versions_server = https.createServer( (request, response) => { " +
@@ -63,37 +69,44 @@ public class MainActivity extends AppCompatActivity {
             }).start();
         }
 
+        // Initializes variables to node versions button and textview in layout
         final Button buttonVersions = findViewById(R.id.btVersions);
         final TextView textViewVersions = findViewById(R.id.tvVersions);
 
+        // Listener for when node versions button is clicked
         buttonVersions.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                //Network operations should be done in the background.
-                new AsyncTask<Void,Void,String>() {
+                // Connects to node, and returns message in text view indicating success/failure
+                new AsyncTask<Void, Void, String>() {
                     @Override
                     protected String doInBackground(Void... params) {
-                        String nodeResponse="";
+                        String nodeResponse = "";
                         try {
 
-                            // Address that connects emulator with your localhost. Enter this into emulator browser.
+                            // Address that connects emulator with your localhost through server.js running locally
                             URL localNodeServer = new URL("http://10.0.2.2:4000/users");
 
                             BufferedReader in = new BufferedReader(
                                     new InputStreamReader(localNodeServer.openStream()));
                             String inputLine;
+                            // Gets response from server
                             while ((inputLine = in.readLine()) != null)
-                                nodeResponse=nodeResponse+inputLine;
+                                nodeResponse = nodeResponse + inputLine;
                             in.close();
                         } catch (Exception ex) {
-                            nodeResponse=ex.toString();
+                            nodeResponse = ex.toString();
                         }
                         return nodeResponse;
                     }
+
                     @Override
                     protected void onPostExecute(String result) {
-                        if(result.contains("test@test.com"))
+                        // If connected, the server returns the whole database as string
+                        // If returned string contains test@test.com (our testing account), must be connected to server
+                        if (result.contains("test@test.com"))
                             textViewVersions.setText("Connected to server");
+                            // Else it must not be connected
                         else
                             textViewVersions.setText("Not connected to server");
                     }
@@ -103,19 +116,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    
 
-    // Called when the user taps the LOG-IN button, transfers them to LogInActivity2
+
+    // Called when the user taps the LOG-IN button
     public void logIn(View view) {
+        // Sets intent to go take from main to login screen
         Intent intent = new Intent(this, LogInActivity2.class);
+        // Starts intent
         startActivity(intent);
     }
 
-     
 
     // Called when the user taps the SIGN UP button, transfers them to SignUpActivity
     public void signUp(View view) {
+        // Sets intent to go take user from main to sign up screen
         Intent intent = new Intent(this, SignUpActivity.class);
+        // Starts intent
         startActivity(intent);
     }
 

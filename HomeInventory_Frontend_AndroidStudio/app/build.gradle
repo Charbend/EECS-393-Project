@@ -58,5 +58,6 @@ dependencies {
     testImplementation 'androidx.test:core:1.2.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.0-alpha04'
     implementation 'androidx.navigation:navigation-ui:2.3.0-alpha04'
+    // Volley for sending HTTP Requests
     implementation 'com.android.volley:volley:1.1.1'
 }
