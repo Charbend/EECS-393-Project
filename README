@@ -10,6 +10,8 @@ Fork a new branch so you don't work on the master branch
 When satisfied that your code works, commit it
 We can then merge any code back into the master branch
 
+List of known bugs can be found in the issues tab of this repository.
+
 HomeInventory User Manual
 1. How to Run/SDK Platform
   1.1 Have only Android 10.0 (Q) checked for SDK Platforms.
